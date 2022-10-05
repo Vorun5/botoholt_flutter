@@ -1,0 +1,4 @@
+enum ThemeColors {
+  dark,
+  light,
+}
