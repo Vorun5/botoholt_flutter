@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 2
-/// Strings: 10 (5 per locale)
+/// Strings: 6 (3 per locale)
 ///
-/// Built on 2022-10-04 at 09:47 UTC
+/// Built on 2022-11-25 at 16:15 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -89,7 +89,7 @@ extension BuildContextTranslationsExtension on BuildContext {
 
 /// Manages all translation instances and the current locale
 class LocaleSettings extends BaseFlutterLocaleSettings<AppLocale, _StringsEn> {
-	LocaleSettings._() : super(locales: AppLocale.values, baseLocale: _baseLocale, utils: AppLocaleUtils.instance);
+	LocaleSettings._() : super(utils: AppLocaleUtils.instance);
 
 	static final instance = LocaleSettings._();
 
@@ -149,20 +149,8 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 
 	// Translations
 	String get title => 'Привет, мир!';
-	String hello({required Object name}) => 'Hallo ${name}';
-	String get save => 'Speichern';
-	late final _StringsLoginEn login = _StringsLoginEn._(_root);
-}
-
-// Path: login
-class _StringsLoginEn {
-	_StringsLoginEn._(this._root);
-
-	final _StringsEn _root; // ignore: unused_field
-
-	// Translations
-	String get success => 'Login erfolgreich';
-	String get fail => 'Login fehlgeschlagen';
+	String get language => 'Язык';
+	String get theme => 'Тема';
 }
 
 // Path: <root>
@@ -191,20 +179,8 @@ class _StringsRu implements _StringsEn {
 
 	// Translations
 	@override String get title => 'Привет, мир!';
-	@override String hello({required Object name}) => 'Hallo ${name}';
-	@override String get save => 'Speichern';
-	@override late final _StringsLoginRu login = _StringsLoginRu._(_root);
-}
-
-// Path: login
-class _StringsLoginRu implements _StringsLoginEn {
-	_StringsLoginRu._(this._root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get success => 'Login erfolgreich';
-	@override String get fail => 'Login fehlgeschlagen';
+	@override String get language => 'Язык';
+	@override String get theme => 'Тема';
 }
 
 /// Flat map(s) containing all translations.
@@ -214,10 +190,8 @@ extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'title': return 'Привет, мир!';
-			case 'hello': return ({required Object name}) => 'Hallo ${name}';
-			case 'save': return 'Speichern';
-			case 'login.success': return 'Login erfolgreich';
-			case 'login.fail': return 'Login fehlgeschlagen';
+			case 'language': return 'Язык';
+			case 'theme': return 'Тема';
 			default: return null;
 		}
 	}
@@ -227,10 +201,8 @@ extension on _StringsRu {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'title': return 'Привет, мир!';
-			case 'hello': return ({required Object name}) => 'Hallo ${name}';
-			case 'save': return 'Speichern';
-			case 'login.success': return 'Login erfolgreich';
-			case 'login.fail': return 'Login fehlgeschlagen';
+			case 'language': return 'Язык';
+			case 'theme': return 'Тема';
 			default: return null;
 		}
 	}

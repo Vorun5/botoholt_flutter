@@ -1,21 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'main.dart';
+part of 'scroll_to_top.dart';
 
 // **************************************************************************
 // FunctionalWidgetGenerator
 // **************************************************************************
 
-class _App extends HookConsumerWidget {
-  const _App({Key? key}) : super(key: key);
+class ScrollToTop extends HookConsumerWidget {
+  const ScrollToTop({
+    Key? key,
+    required this.onPressed,
+  }) : super(key: key);
+
+  final void Function() onPressed;
 
   @override
   Widget build(
     BuildContext _context,
     WidgetRef _ref,
   ) =>
-      __app(
-        _context,
+      _scrollToTop(
         _ref,
+        onPressed: onPressed,
       );
 }

@@ -1,21 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'main.dart';
+part of 'app_scaffold.dart';
 
 // **************************************************************************
 // FunctionalWidgetGenerator
 // **************************************************************************
 
-class _App extends HookConsumerWidget {
-  const _App({Key? key}) : super(key: key);
+class AppScaffold extends HookConsumerWidget {
+  const AppScaffold({
+    Key? key,
+    required this.body,
+  }) : super(key: key);
+
+  final Widget body;
 
   @override
   Widget build(
     BuildContext _context,
     WidgetRef _ref,
   ) =>
-      __app(
+      _appScaffold(
         _context,
         _ref,
+        body: body,
       );
 }
