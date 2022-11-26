@@ -210,8 +210,8 @@ analyzer:
     - '*/.flutter-plugins-dependencies'
     - '*/lib/generated_plugin_registrant.dart'
     - '*/lib/src/.generated/**'
-    - '*.freezed.dart'
-    - '*.g.dart'
+    - '*/*.freezed.dart'
+    - '*/*.g.dart'
   plugins: 
     - 'dart_code_metrics'
 

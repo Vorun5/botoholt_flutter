@@ -1,6 +1,7 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:botoholt_flutter/i18n/strings.g.dart';
 import 'package:botoholt_flutter/utils/font_size.dart';
+import 'package:botoholt_flutter/utils/paddings.dart';
 import 'package:botoholt_flutter/utils/themes.dart';
 import 'package:botoholt_flutter/widgets/tiles.dart';
 import 'package:flag/flag.dart';
@@ -72,7 +73,8 @@ Widget _appScaffold(
                               ? locale.languageCode
                               : 'GB',
                           height: 30,
-                          width: 30),
+                          width: 30,
+                          ),
                       onTap: () {
                         LocaleSettings.setLocale(locale);
                       },
@@ -83,7 +85,13 @@ Widget _appScaffold(
           ],
         ),
       ),
-      body: body,
+      body: Center(
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 800),
+          padding: const EdgeInsets.all(Paddings.normal),
+          child: body,
+        ),
+      ),
     ),
   );
 }

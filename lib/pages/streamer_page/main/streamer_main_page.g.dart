@@ -1,26 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'streamer.dart';
+part of 'streamer_main_page.dart';
 
 // **************************************************************************
 // FunctionalWidgetGenerator
 // **************************************************************************
 
-class Streamer extends HookConsumerWidget {
-  const Streamer({
-    Key? key,
-    required this.streamer,
-  }) : super(key: key);
-
-  final StreamerDto streamer;
+class StreamerMainPage extends HookConsumerWidget {
+  const StreamerMainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(
     BuildContext _context,
     WidgetRef _ref,
   ) =>
-      _streamer(
+      _streamerMainPage(
         _context,
-        streamer: streamer,
+        _ref,
       );
 }

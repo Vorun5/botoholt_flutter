@@ -6,7 +6,7 @@ import 'package:botoholt_flutter/utils/paddings.dart';
 import 'package:botoholt_flutter/widgets/streamer_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:go_router/go_router.dart';
 
 part 'streamer_profile_card.g.dart';
 
@@ -19,12 +19,7 @@ Widget _streamerProfileCard(BuildContext context, StreamerDto streamer) {
     color: Theme.of(context).colorScheme.surfaceVariant,
     child: InkWell(
       borderRadius: BorderRadius.circular(Constants.cardBorderRadius),
-      onTap: () async {
-        final url = Uri.parse('https://www.twitch.tv/${streamer.login}');
-        if (!await launchUrl(url)) {
-          debugPrint('Could not launch $url');
-        }
-      },
+      onTap: () => context.goNamed('streamer', params: {'name': streamer.login}),
       child: Container(
         padding: const EdgeInsets.all(Paddings.normal),
         child: Column(
@@ -32,7 +27,7 @@ Widget _streamerProfileCard(BuildContext context, StreamerDto streamer) {
           children: [
             StreamerAvatar(streamer),
             if (streamInfo != null)
-              Column(
+               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Gaps.small,
@@ -53,22 +48,26 @@ Widget _streamerProfileCard(BuildContext context, StreamerDto streamer) {
                           color: Colors.purple,
                         ),
                       ),
-                     Row(
-                      children: [
-                      const Icon(Icons.person_2_outlined, color: Colors.red,),
-                       Text(
-                        streamInfo.viewerCount.toString(),
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: FontSize.big - 2,
-                          color: Colors.red,
-                        ),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.person_2_outlined,
+                            color: Colors.red,
+                          ),
+                          Text(
+                            streamInfo.viewerCount.toString(),
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: FontSize.big - 2,
+                              color: Colors.red,
+                            ),
+                          ),
+                        ],
                       ),
-                     ],),
                     ],
                   )
                 ],
-              )
+              ),
           ],
         ),
       ),
