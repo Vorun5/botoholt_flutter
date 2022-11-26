@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 2
-/// Strings: 6 (3 per locale)
+/// Strings: 44 (22 per locale)
 ///
-/// Built on 2022-11-25 at 16:15 UTC
+/// Built on 2022-11-26 at 22:51 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -148,9 +148,88 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsEn _root = this; // ignore: unused_field
 
 	// Translations
-	String get title => 'Привет, мир!';
-	String get language => 'Язык';
-	String get theme => 'Тема';
+	late final _StringsAppBarEn appBar = _StringsAppBarEn._(_root);
+	late final _StringsStreamerEn streamer = _StringsStreamerEn._(_root);
+	late final _StringsFormEn form = _StringsFormEn._(_root);
+	late final _StringsTimesEn times = _StringsTimesEn._(_root);
+	String get error => 'Error';
+	String get notConnectedToBotoholt => 'This streamer is not connected to Botoholt😪';
+	String get pageNotFound404 => 'Page not found\n404';
+	String get somethingWentWrong => 'Что-то пошло не так(F5)🤔';
+}
+
+// Path: appBar
+class _StringsAppBarEn {
+	_StringsAppBarEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get language => 'Language';
+	String get logOut => 'Log Out';
+}
+
+// Path: streamer
+class _StringsStreamerEn {
+	_StringsStreamerEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	late final _StringsStreamerTabsEn tabs = _StringsStreamerTabsEn._(_root);
+	late final _StringsStreamerQueueEn queue = _StringsStreamerQueueEn._(_root);
+}
+
+// Path: form
+class _StringsFormEn {
+	_StringsFormEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get search => 'Search';
+}
+
+// Path: times
+class _StringsTimesEn {
+	_StringsTimesEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get minutes => 'm';
+	String get seconds => 's';
+	String get hours => 'h';
+}
+
+// Path: streamer.tabs
+class _StringsStreamerTabsEn {
+	_StringsStreamerTabsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get queue => 'Queue';
+	String get history => 'History';
+	String get topDJs => 'Top DJs';
+	String get topSongs => 'Top Songs';
+	String get month => 'Month';
+	String get allTime => 'All Time';
+	String get week => 'Цeek';
+}
+
+// Path: streamer.queue
+class _StringsStreamerQueueEn {
+	_StringsStreamerQueueEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get nowPlaying => 'Now playing:';
+	String willStillPlay({required Object time}) => 'Still going to play for about ${time}';
+	String get onPause => 'On pause';
+	String get songsOnPause => 'Songs on pause.';
+	String get lastSong => 'Last Song:';
 }
 
 // Path: <root>
@@ -178,9 +257,88 @@ class _StringsRu implements _StringsEn {
 	@override late final _StringsRu _root = this; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Привет, мир!';
+	@override late final _StringsAppBarRu appBar = _StringsAppBarRu._(_root);
+	@override late final _StringsStreamerRu streamer = _StringsStreamerRu._(_root);
+	@override late final _StringsFormRu form = _StringsFormRu._(_root);
+	@override late final _StringsTimesRu times = _StringsTimesRu._(_root);
+	@override String get error => 'Error';
+	@override String get notConnectedToBotoholt => 'Этот стрим не подключен к Botoholt😪';
+	@override String get pageNotFound404 => 'Страница не найдена\n404';
+	@override String get somethingWentWrong => 'Something went wrong (F5)🤔';
+}
+
+// Path: appBar
+class _StringsAppBarRu implements _StringsAppBarEn {
+	_StringsAppBarRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
 	@override String get language => 'Язык';
-	@override String get theme => 'Тема';
+	@override String get logOut => 'Выйти';
+}
+
+// Path: streamer
+class _StringsStreamerRu implements _StringsStreamerEn {
+	_StringsStreamerRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsStreamerTabsRu tabs = _StringsStreamerTabsRu._(_root);
+	@override late final _StringsStreamerQueueRu queue = _StringsStreamerQueueRu._(_root);
+}
+
+// Path: form
+class _StringsFormRu implements _StringsFormEn {
+	_StringsFormRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get search => 'Поиск';
+}
+
+// Path: times
+class _StringsTimesRu implements _StringsTimesEn {
+	_StringsTimesRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get minutes => 'м';
+	@override String get seconds => 'с';
+	@override String get hours => 'ч';
+}
+
+// Path: streamer.tabs
+class _StringsStreamerTabsRu implements _StringsStreamerTabsEn {
+	_StringsStreamerTabsRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get queue => 'Очередь';
+	@override String get history => 'История';
+	@override String get topDJs => 'Топ Диджеев';
+	@override String get topSongs => 'Топ песен';
+	@override String get month => 'Месяц';
+	@override String get allTime => 'Всё время';
+	@override String get week => 'Неделя';
+}
+
+// Path: streamer.queue
+class _StringsStreamerQueueRu implements _StringsStreamerQueueEn {
+	_StringsStreamerQueueRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get nowPlaying => 'Сейчас играет:';
+	@override String willStillPlay({required Object time}) => 'Песни ещё будут играть примерно ${time}';
+	@override String get onPause => 'На паузе';
+	@override String get songsOnPause => 'Песни на паузе.';
+	@override String get lastSong => 'Последняя песня:';
 }
 
 /// Flat map(s) containing all translations.
@@ -189,9 +347,28 @@ class _StringsRu implements _StringsEn {
 extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'title': return 'Привет, мир!';
-			case 'language': return 'Язык';
-			case 'theme': return 'Тема';
+			case 'appBar.language': return 'Language';
+			case 'appBar.logOut': return 'Log Out';
+			case 'streamer.tabs.queue': return 'Queue';
+			case 'streamer.tabs.history': return 'History';
+			case 'streamer.tabs.topDJs': return 'Top DJs';
+			case 'streamer.tabs.topSongs': return 'Top Songs';
+			case 'streamer.tabs.month': return 'Month';
+			case 'streamer.tabs.allTime': return 'All Time';
+			case 'streamer.tabs.week': return 'Цeek';
+			case 'streamer.queue.nowPlaying': return 'Now playing:';
+			case 'streamer.queue.willStillPlay': return ({required Object time}) => 'Still going to play for about ${time}';
+			case 'streamer.queue.onPause': return 'On pause';
+			case 'streamer.queue.songsOnPause': return 'Songs on pause.';
+			case 'streamer.queue.lastSong': return 'Last Song:';
+			case 'form.search': return 'Search';
+			case 'times.minutes': return 'm';
+			case 'times.seconds': return 's';
+			case 'times.hours': return 'h';
+			case 'error': return 'Error';
+			case 'notConnectedToBotoholt': return 'This streamer is not connected to Botoholt😪';
+			case 'pageNotFound404': return 'Page not found\n404';
+			case 'somethingWentWrong': return 'Что-то пошло не так(F5)🤔';
 			default: return null;
 		}
 	}
@@ -200,9 +377,28 @@ extension on _StringsEn {
 extension on _StringsRu {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'title': return 'Привет, мир!';
-			case 'language': return 'Язык';
-			case 'theme': return 'Тема';
+			case 'appBar.language': return 'Язык';
+			case 'appBar.logOut': return 'Выйти';
+			case 'streamer.tabs.queue': return 'Очередь';
+			case 'streamer.tabs.history': return 'История';
+			case 'streamer.tabs.topDJs': return 'Топ Диджеев';
+			case 'streamer.tabs.topSongs': return 'Топ песен';
+			case 'streamer.tabs.month': return 'Месяц';
+			case 'streamer.tabs.allTime': return 'Всё время';
+			case 'streamer.tabs.week': return 'Неделя';
+			case 'streamer.queue.nowPlaying': return 'Сейчас играет:';
+			case 'streamer.queue.willStillPlay': return ({required Object time}) => 'Песни ещё будут играть примерно ${time}';
+			case 'streamer.queue.onPause': return 'На паузе';
+			case 'streamer.queue.songsOnPause': return 'Песни на паузе.';
+			case 'streamer.queue.lastSong': return 'Последняя песня:';
+			case 'form.search': return 'Поиск';
+			case 'times.minutes': return 'м';
+			case 'times.seconds': return 'с';
+			case 'times.hours': return 'ч';
+			case 'error': return 'Error';
+			case 'notConnectedToBotoholt': return 'Этот стрим не подключен к Botoholt😪';
+			case 'pageNotFound404': return 'Страница не найдена\n404';
+			case 'somethingWentWrong': return 'Something went wrong (F5)🤔';
 			default: return null;
 		}
 	}

@@ -24,6 +24,10 @@ mixin _$StreamerDto {
   String get login => throw _privateConstructorUsedError;
   @JsonKey(name: 'display_name')
   String get displayName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'daLink')
+  String? get daUrl => throw _privateConstructorUsedError;
+  @JsonKey(name: 'broadcaster_type')
+  String get broadcasterType => throw _privateConstructorUsedError;
   @JsonKey(name: 'profile_image_url')
   String get profileImageUrl => throw _privateConstructorUsedError;
   @JsonKey(name: 'settings')
@@ -45,6 +49,8 @@ abstract class $StreamerDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'login') String login,
       @JsonKey(name: 'display_name') String displayName,
+      @JsonKey(name: 'daLink') String? daUrl,
+      @JsonKey(name: 'broadcaster_type') String broadcasterType,
       @JsonKey(name: 'profile_image_url') String profileImageUrl,
       @JsonKey(name: 'settings') ServicesDto? services,
       StreamInfoDto? streamInfo});
@@ -68,6 +74,8 @@ class _$StreamerDtoCopyWithImpl<$Res, $Val extends StreamerDto>
   $Res call({
     Object? login = null,
     Object? displayName = null,
+    Object? daUrl = freezed,
+    Object? broadcasterType = null,
     Object? profileImageUrl = null,
     Object? services = freezed,
     Object? streamInfo = freezed,
@@ -80,6 +88,14 @@ class _$StreamerDtoCopyWithImpl<$Res, $Val extends StreamerDto>
       displayName: null == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
+              as String,
+      daUrl: freezed == daUrl
+          ? _value.daUrl
+          : daUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      broadcasterType: null == broadcasterType
+          ? _value.broadcasterType
+          : broadcasterType // ignore: cast_nullable_to_non_nullable
               as String,
       profileImageUrl: null == profileImageUrl
           ? _value.profileImageUrl
@@ -132,6 +148,8 @@ abstract class _$$_StreamerDtoCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'login') String login,
       @JsonKey(name: 'display_name') String displayName,
+      @JsonKey(name: 'daLink') String? daUrl,
+      @JsonKey(name: 'broadcaster_type') String broadcasterType,
       @JsonKey(name: 'profile_image_url') String profileImageUrl,
       @JsonKey(name: 'settings') ServicesDto? services,
       StreamInfoDto? streamInfo});
@@ -155,6 +173,8 @@ class __$$_StreamerDtoCopyWithImpl<$Res>
   $Res call({
     Object? login = null,
     Object? displayName = null,
+    Object? daUrl = freezed,
+    Object? broadcasterType = null,
     Object? profileImageUrl = null,
     Object? services = freezed,
     Object? streamInfo = freezed,
@@ -167,6 +187,14 @@ class __$$_StreamerDtoCopyWithImpl<$Res>
       displayName: null == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
+              as String,
+      daUrl: freezed == daUrl
+          ? _value.daUrl
+          : daUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      broadcasterType: null == broadcasterType
+          ? _value.broadcasterType
+          : broadcasterType // ignore: cast_nullable_to_non_nullable
               as String,
       profileImageUrl: null == profileImageUrl
           ? _value.profileImageUrl
@@ -190,6 +218,8 @@ class _$_StreamerDto implements _StreamerDto {
   const _$_StreamerDto(
       {@JsonKey(name: 'login') required this.login,
       @JsonKey(name: 'display_name') required this.displayName,
+      @JsonKey(name: 'daLink') required this.daUrl,
+      @JsonKey(name: 'broadcaster_type') required this.broadcasterType,
       @JsonKey(name: 'profile_image_url') required this.profileImageUrl,
       @JsonKey(name: 'settings') required this.services,
       required this.streamInfo});
@@ -204,6 +234,12 @@ class _$_StreamerDto implements _StreamerDto {
   @JsonKey(name: 'display_name')
   final String displayName;
   @override
+  @JsonKey(name: 'daLink')
+  final String? daUrl;
+  @override
+  @JsonKey(name: 'broadcaster_type')
+  final String broadcasterType;
+  @override
   @JsonKey(name: 'profile_image_url')
   final String profileImageUrl;
   @override
@@ -214,7 +250,7 @@ class _$_StreamerDto implements _StreamerDto {
 
   @override
   String toString() {
-    return 'StreamerDto(login: $login, displayName: $displayName, profileImageUrl: $profileImageUrl, services: $services, streamInfo: $streamInfo)';
+    return 'StreamerDto(login: $login, displayName: $displayName, daUrl: $daUrl, broadcasterType: $broadcasterType, profileImageUrl: $profileImageUrl, services: $services, streamInfo: $streamInfo)';
   }
 
   @override
@@ -225,6 +261,9 @@ class _$_StreamerDto implements _StreamerDto {
             (identical(other.login, login) || other.login == login) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
+            (identical(other.daUrl, daUrl) || other.daUrl == daUrl) &&
+            (identical(other.broadcasterType, broadcasterType) ||
+                other.broadcasterType == broadcasterType) &&
             (identical(other.profileImageUrl, profileImageUrl) ||
                 other.profileImageUrl == profileImageUrl) &&
             (identical(other.services, services) ||
@@ -235,8 +274,8 @@ class _$_StreamerDto implements _StreamerDto {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, login, displayName, profileImageUrl, services, streamInfo);
+  int get hashCode => Object.hash(runtimeType, login, displayName, daUrl,
+      broadcasterType, profileImageUrl, services, streamInfo);
 
   @JsonKey(ignore: true)
   @override
@@ -256,6 +295,8 @@ abstract class _StreamerDto implements StreamerDto {
   const factory _StreamerDto(
       {@JsonKey(name: 'login') required final String login,
       @JsonKey(name: 'display_name') required final String displayName,
+      @JsonKey(name: 'daLink') required final String? daUrl,
+      @JsonKey(name: 'broadcaster_type') required final String broadcasterType,
       @JsonKey(name: 'profile_image_url') required final String profileImageUrl,
       @JsonKey(name: 'settings') required final ServicesDto? services,
       required final StreamInfoDto? streamInfo}) = _$_StreamerDto;
@@ -269,6 +310,12 @@ abstract class _StreamerDto implements StreamerDto {
   @override
   @JsonKey(name: 'display_name')
   String get displayName;
+  @override
+  @JsonKey(name: 'daLink')
+  String? get daUrl;
+  @override
+  @JsonKey(name: 'broadcaster_type')
+  String get broadcasterType;
   @override
   @JsonKey(name: 'profile_image_url')
   String get profileImageUrl;

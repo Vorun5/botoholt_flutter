@@ -10,6 +10,8 @@ _$_StreamerDto _$$_StreamerDtoFromJson(Map<String, dynamic> json) =>
     _$_StreamerDto(
       login: json['login'] as String,
       displayName: json['display_name'] as String,
+      daUrl: json['daLink'] as String?,
+      broadcasterType: json['broadcaster_type'] as String,
       profileImageUrl: json['profile_image_url'] as String,
       services: json['settings'] == null
           ? null
@@ -23,6 +25,8 @@ Map<String, dynamic> _$$_StreamerDtoToJson(_$_StreamerDto instance) =>
     <String, dynamic>{
       'login': instance.login,
       'display_name': instance.displayName,
+      'daLink': instance.daUrl,
+      'broadcaster_type': instance.broadcasterType,
       'profile_image_url': instance.profileImageUrl,
       'settings': instance.services,
       'streamInfo': instance.streamInfo,

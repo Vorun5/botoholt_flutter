@@ -11,6 +11,19 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 part 'main.g.dart';
 
+// TODO: локально сохранять выбранный язык
+
+// TODO: заменить индикаторы загрузки на скелитон
+
+// TODO: подключить сокеты
+
+// TODO: добавить топ диджеев
+
+// TODO: добавить топ треков
+
+// TODO: добавить напоминание о себе
+
+// TODO: запусить на андроиде
 
 void main() async {
 

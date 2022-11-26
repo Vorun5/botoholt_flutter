@@ -15,6 +15,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_adaptive_scaffold: ^0.0.8
+  flutter_svg: ^1.1.6
   flutter_form_builder: ^7.7.0
   flutter_hooks: ^0.18.5+1
   flutter_localizations:
@@ -45,7 +46,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-fonts:
-      - family: icons
-        fonts:
-          - asset: fonts/icons.ttf
+  assets:
+    - assets/dance/

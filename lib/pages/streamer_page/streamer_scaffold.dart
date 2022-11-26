@@ -1,4 +1,5 @@
 import 'package:botoholt_flutter/data/dto/streamer_dto.dart';
+import 'package:botoholt_flutter/i18n/strings.g.dart';
 import 'package:botoholt_flutter/providers/future/streamer_provider.dart';
 import 'package:botoholt_flutter/utils/font_size.dart';
 import 'package:botoholt_flutter/utils/gaps.dart';
@@ -18,15 +19,16 @@ Widget _streamerScaffold(
   WidgetRef ref, {
   required Widget? body,
 }) {
+  final i18n = Translations.of(context);
   final streamer = ref.watch(streamerProvider);
 
   return AppScaffold(
     body: streamer.when(
       data: (data) {
         if (data == null) {
-          return const Text(
-            'Этот стример не подключён к botoholt 😕',
-            style: TextStyle(fontSize: FontSize.big),
+          return Text(
+            i18n.notConnectedToBotoholt,
+            style: const TextStyle(fontSize: FontSize.big),
           );
         }
         return _Page(
@@ -34,9 +36,9 @@ Widget _streamerScaffold(
           body: body,
         );
       },
-      error: (error, _) => const Text(
-        'Что-то пошёл не так (F5) 😕',
-        style: TextStyle(fontSize: FontSize.big),
+      error: (error, _) => Text(
+        i18n.somethingWentWrong,
+        style: const TextStyle(fontSize: FontSize.big),
       ),
       loading: () => const Center(
         child: CircularProgressIndicator(),
@@ -50,47 +52,49 @@ Widget __page(
   BuildContext context, {
   required StreamerDto streamer,
   required Widget? body,
-}) =>
-    ListView(
-      children: [
-        StreamerProfileCard(streamer),
-        Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: Paddings.small - 5, vertical: Paddings.small),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                _TabButton(
-                  text: 'Очередь',
-                  color: const Color.fromARGB(255, 108, 200, 228),
-                  onPressed: () => context.goNamed(
-                    'queue',
-                    params: {'name': streamer.login},
-                  ),
+}) {
+  final i18n = Translations.of(context);
+  return ListView(
+    children: [
+      StreamerProfileCard(streamer),
+      Padding(
+        padding: const EdgeInsets.symmetric(
+            horizontal: Paddings.small - 5, vertical: Paddings.small),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              _TabButton(
+                text: i18n.streamer.tabs.queue,
+                color: const Color.fromARGB(255, 108, 200, 228),
+                onPressed: () => context.goNamed(
+                  'queue',
+                  params: {'name': streamer.login},
                 ),
-                Gaps.small,
-                _TabButton(
-                  text: 'История',
-                  color: const Color.fromARGB(255, 149, 116, 239),
-                  onPressed: () => context.goNamed(
-                    'history',
-                    params: {'name': streamer.login},
-                  ),
+              ),
+              Gaps.small,
+              _TabButton(
+                text: i18n.streamer.tabs.history,
+                color: const Color.fromARGB(255, 149, 116, 239),
+                onPressed: () => context.goNamed(
+                  'history',
+                  params: {'name': streamer.login},
                 ),
-                Gaps.small,
-                _TabButton(
-                  text: 'Топ Диджеев',
-                  color: const Color.fromARGB(255, 240, 113, 74),
-                  onPressed: () {},
-                ),
-              ],
-            ),
+              ),
+              Gaps.small,
+              _TabButton(
+                text: i18n.streamer.tabs.topDJs,
+                color: const Color.fromARGB(255, 240, 113, 74),
+                onPressed: () {},
+              ),
+            ],
           ),
         ),
-        if (body != null) body,
-      ],
-    );
+      ),
+      if (body != null) body,
+    ],
+  );
+}
 
 @swidget
 Widget __tabButton({
@@ -114,7 +118,9 @@ Widget __tabButton({
         child: Text(
           text,
           style: const TextStyle(
-              color: Colors.black, fontSize: FontSize.normal - 1,),
+            color: Colors.black,
+            fontSize: FontSize.normal - 1,
+          ),
         ),
       ),
     );

@@ -16,7 +16,10 @@ part 'app_scaffold.g.dart';
 Widget _appScaffold(
   BuildContext context, {
   required Widget body,
-}) => ThemeSwitchingArea(
+}) {
+  final i18n = Translations.of(context);
+
+  return ThemeSwitchingArea(
     child: Scaffold(
       appBar: AppBar(
         title: TextButton(
@@ -57,19 +60,19 @@ Widget _appScaffold(
               ),
             ),
             Tiles(
-              title: 'Language',
+              title: i18n.appBar.language,
               icon: Icons.translate,
               children: AppLocale.values
                   .map(
                     (locale) => Tile(
                       title: locale.languageTag,
                       child: Flag.fromString(
-                          locale.languageCode.toLowerCase() != 'en'
-                              ? locale.languageCode
-                              : 'GB',
-                          height: 30,
-                          width: 30,
-                          ),
+                        locale.languageCode.toLowerCase() != 'en'
+                            ? locale.languageCode
+                            : 'GB',
+                        height: 30,
+                        width: 30,
+                      ),
                       onTap: () {
                         LocaleSettings.setLocale(locale);
                       },
@@ -89,4 +92,4 @@ Widget _appScaffold(
       ),
     ),
   );
-
+}

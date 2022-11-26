@@ -1,3 +1,4 @@
+import 'package:botoholt_flutter/pages/streamer_page/streamer_error.dart';
 import 'package:botoholt_flutter/providers/future/streamers_provider.dart';
 import 'package:botoholt_flutter/widgets/app_scaffold.dart';
 import 'package:botoholt_flutter/widgets/streamer_profile_card.dart';
@@ -22,7 +23,7 @@ Widget _homePage(BuildContext context, WidgetRef ref) {
             if (bStreamInfo == null) {
               return -1;
             }
-           return  aStreamInfo.viewerCount.compareTo(bStreamInfo.viewerCount);
+           return  aStreamInfo.viewerCount.compareTo(bStreamInfo.viewerCount) * -1;
           }
           return 1;
         });
@@ -31,7 +32,7 @@ Widget _homePage(BuildContext context, WidgetRef ref) {
           children: data.map(StreamerProfileCard.new).toList(),
         );
       },
-      error: (error, _) => const Text('Error'),
+      error: (error, _) => StreamerError(),
       loading: () => const CircularProgressIndicator(),
     ),
   );

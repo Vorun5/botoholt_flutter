@@ -1,5 +1,36 @@
 {
-    "title": "Привет, мир!",
-    "language": "Язык",
-    "theme": "Тема"
+    "appBar": {
+        "language": "Language",
+        "logOut": "Log Out"
+    },
+    "streamer": {
+        "tabs": {
+            "queue": "Queue",
+            "history": "History",
+            "topDJs": "Top DJs",
+            "topSongs": "Top Songs",
+            "month": "Month",
+            "allTime": "All Time",
+            "week": "Цeek"
+        },
+        "queue": {
+            "nowPlaying": "Now playing:",
+            "willStillPlay": "Still going to play for about $time",
+            "onPause": "On pause",
+            "songsOnPause": "Songs on pause.",
+            "lastSong": "Last Song:"
+        }
+    },
+    "form": {
+        "search": "Search"
+    },
+    "times": {
+        "minutes": "m",
+        "seconds": "s",
+        "hours": "h"
+    },
+    "error": "Error",
+    "notConnectedToBotoholt": "This streamer is not connected to Botoholt😪",
+    "pageNotFound404": "Page not found\n404",
+    "somethingWentWrong": "Что-то пошло не так(F5)🤔"
 }

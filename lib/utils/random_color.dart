@@ -11,4 +11,4 @@ const _colors = [
   Color.fromARGB(252, 235, 60, 60),
 ];
 
-Color randomColor() => _colors[_random.nextInt(_colors.length)];
+Color randomColor() => _colors.toList()[_random.nextInt(_colors.length)];

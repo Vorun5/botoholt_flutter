@@ -19,3 +19,18 @@ class StreamerQueuePage extends HookConsumerWidget {
         _ref,
       );
 }
+
+class _Page extends StatelessWidget {
+  const _Page({
+    Key? key,
+    required this.queue,
+  }) : super(key: key);
+
+  final StreamerQueueDto queue;
+
+  @override
+  Widget build(BuildContext _context) => __page(
+        _context,
+        queue: queue,
+      );
+}

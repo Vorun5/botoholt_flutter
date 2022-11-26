@@ -17,3 +17,25 @@ class StreamerAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext _context) => _streamerAvatar(streamer);
 }
+
+class _IconLink extends StatelessWidget {
+  const _IconLink({
+    Key? key,
+    required this.url,
+    required this.svgIcon,
+    this.color,
+  }) : super(key: key);
+
+  final String url;
+
+  final String svgIcon;
+
+  final Color? color;
+
+  @override
+  Widget build(BuildContext _context) => __iconLink(
+        url: url,
+        svgIcon: svgIcon,
+        color: color,
+      );
+}
