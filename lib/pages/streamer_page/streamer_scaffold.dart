@@ -114,9 +114,7 @@ Widget __tabButton({
         child: Text(
           text,
           style: const TextStyle(
-            color: Colors.black,
-            fontSize: FontSize.normal - 1,
-          ),
+              color: Colors.black, fontSize: FontSize.normal - 1,),
         ),
       ),
     );

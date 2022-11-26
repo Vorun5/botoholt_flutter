@@ -9,8 +9,7 @@ part of 'history_song_dto.dart';
 _$_HistorySongDto _$$_HistorySongDtoFromJson(Map<String, dynamic> json) =>
     _$_HistorySongDto(
       mediaName: json['mediaName'] as String,
-      timeFrom: DateTime.parse(json['timeFrom'] as String),
-      profileImageUrl: json['profileImageUrl'] as String,
+      timeFrom: json['timeFrom'] as String,
       requestedBy: json['requestedBy'] as String,
       mediaLink: json['mediaLink'] as String,
     );
@@ -18,8 +17,7 @@ _$_HistorySongDto _$$_HistorySongDtoFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_HistorySongDtoToJson(_$_HistorySongDto instance) =>
     <String, dynamic>{
       'mediaName': instance.mediaName,
-      'timeFrom': instance.timeFrom.toIso8601String(),
-      'profileImageUrl': instance.profileImageUrl,
+      'timeFrom': instance.timeFrom,
       'requestedBy': instance.requestedBy,
       'mediaLink': instance.mediaLink,
     };

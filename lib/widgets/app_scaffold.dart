@@ -8,20 +8,15 @@ import 'package:flag/flag.dart';
 import 'package:flutter/material.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 part 'app_scaffold.g.dart';
 
-@hcwidget
+@swidget
 Widget _appScaffold(
-  BuildContext context,
-  WidgetRef ref, {
+  BuildContext context, {
   required Widget body,
-}) {
-  final a = 10;
-
-  return ThemeSwitchingArea(
+}) => ThemeSwitchingArea(
     child: Scaffold(
       appBar: AppBar(
         title: TextButton(
@@ -88,10 +83,10 @@ Widget _appScaffold(
       body: Center(
         child: Container(
           constraints: const BoxConstraints(maxWidth: 800),
-          padding: const EdgeInsets.all(Paddings.normal),
+          padding: const EdgeInsets.all(Paddings.small),
           child: body,
         ),
       ),
     ),
   );
-}
+

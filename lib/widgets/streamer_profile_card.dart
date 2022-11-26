@@ -65,7 +65,7 @@ Widget _streamerProfileCard(BuildContext context, StreamerDto streamer) {
                         ],
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
           ],

@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'app_scaffold.dart';
+part of 'history_song_card.dart';
 
 // **************************************************************************
 // FunctionalWidgetGenerator
 // **************************************************************************
 
-class AppScaffold extends StatelessWidget {
-  const AppScaffold({
+class HistorySongCard extends StatelessWidget {
+  const HistorySongCard({
     Key? key,
-    required this.body,
+    required this.song,
   }) : super(key: key);
 
-  final Widget body;
+  final HistorySongDto song;
 
   @override
-  Widget build(BuildContext _context) => _appScaffold(
+  Widget build(BuildContext _context) => _historySongCard(
         _context,
-        body: body,
+        song: song,
       );
 }

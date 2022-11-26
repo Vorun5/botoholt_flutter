@@ -9,7 +9,6 @@ const _colors = [
   Color.fromARGB(255, 73, 195, 59),
   Color.fromARGB(255, 79, 90, 244),
   Color.fromARGB(252, 235, 60, 60),
-  Color.fromARGB(251, 54, 153, 224),
 ];
 
 Color randomColor() => _colors[_random.nextInt(_colors.length)];

@@ -6,9 +6,8 @@ part 'history_song_dto.g.dart';
 @freezed
 class HistorySongDto with _$HistorySongDto {
   const factory HistorySongDto({
-required String mediaName,
-     required DateTime timeFrom,
-    required String profileImageUrl,
+    required String mediaName,
+    required String timeFrom,
     required String requestedBy,
     required String mediaLink,
   }) = _HistorySongDto;

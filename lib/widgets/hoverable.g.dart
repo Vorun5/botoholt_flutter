@@ -1,22 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'app_scaffold.dart';
+part of 'hoverable.dart';
 
 // **************************************************************************
 // FunctionalWidgetGenerator
 // **************************************************************************
 
-class AppScaffold extends StatelessWidget {
-  const AppScaffold({
+class Hoverable extends HookWidget {
+  const Hoverable({
     Key? key,
-    required this.body,
+    required this.child,
   }) : super(key: key);
 
-  final Widget body;
+  final Widget Function(bool) child;
 
   @override
-  Widget build(BuildContext _context) => _appScaffold(
-        _context,
-        body: body,
-      );
+  Widget build(BuildContext _context) => _hoverable(child: child);
 }

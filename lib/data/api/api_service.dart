@@ -1,4 +1,5 @@
 import 'package:botoholt_flutter/data/api/api_constants.dart';
+import 'package:botoholt_flutter/data/dto/history_song_dto.dart';
 import 'package:botoholt_flutter/data/dto/streamer_dto.dart';
 import 'package:dio/dio.dart';
 
@@ -16,6 +17,20 @@ class ApiService {
 
     return data
         .map((e) => StreamerDto.fromJson(e as Map<String, Object?>))
+        .toList();
+  }
+
+  static Future<List<HistorySongDto>> getStreamerHistory(String name) async {
+    final response = await _dio.get<List>(
+      ApiConstants.baseUrl2 + ApiConstants.streamerHitsotyEndPoint(name),
+    );
+    final data = response.data;
+    if (data == null) {
+      return <HistorySongDto>[];
+    }
+
+    return data
+        .map((e) => HistorySongDto.fromJson(e as Map<String, Object?>))
         .toList();
   }
 

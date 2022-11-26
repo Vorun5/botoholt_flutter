@@ -21,8 +21,7 @@ HistorySongDto _$HistorySongDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$HistorySongDto {
   String get mediaName => throw _privateConstructorUsedError;
-  DateTime get timeFrom => throw _privateConstructorUsedError;
-  String get profileImageUrl => throw _privateConstructorUsedError;
+  String get timeFrom => throw _privateConstructorUsedError;
   String get requestedBy => throw _privateConstructorUsedError;
   String get mediaLink => throw _privateConstructorUsedError;
 
@@ -40,8 +39,7 @@ abstract class $HistorySongDtoCopyWith<$Res> {
   @useResult
   $Res call(
       {String mediaName,
-      DateTime timeFrom,
-      String profileImageUrl,
+      String timeFrom,
       String requestedBy,
       String mediaLink});
 }
@@ -61,7 +59,6 @@ class _$HistorySongDtoCopyWithImpl<$Res, $Val extends HistorySongDto>
   $Res call({
     Object? mediaName = null,
     Object? timeFrom = null,
-    Object? profileImageUrl = null,
     Object? requestedBy = null,
     Object? mediaLink = null,
   }) {
@@ -73,10 +70,6 @@ class _$HistorySongDtoCopyWithImpl<$Res, $Val extends HistorySongDto>
       timeFrom: null == timeFrom
           ? _value.timeFrom
           : timeFrom // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      profileImageUrl: null == profileImageUrl
-          ? _value.profileImageUrl
-          : profileImageUrl // ignore: cast_nullable_to_non_nullable
               as String,
       requestedBy: null == requestedBy
           ? _value.requestedBy
@@ -100,8 +93,7 @@ abstract class _$$_HistorySongDtoCopyWith<$Res>
   @useResult
   $Res call(
       {String mediaName,
-      DateTime timeFrom,
-      String profileImageUrl,
+      String timeFrom,
       String requestedBy,
       String mediaLink});
 }
@@ -119,7 +111,6 @@ class __$$_HistorySongDtoCopyWithImpl<$Res>
   $Res call({
     Object? mediaName = null,
     Object? timeFrom = null,
-    Object? profileImageUrl = null,
     Object? requestedBy = null,
     Object? mediaLink = null,
   }) {
@@ -131,10 +122,6 @@ class __$$_HistorySongDtoCopyWithImpl<$Res>
       timeFrom: null == timeFrom
           ? _value.timeFrom
           : timeFrom // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      profileImageUrl: null == profileImageUrl
-          ? _value.profileImageUrl
-          : profileImageUrl // ignore: cast_nullable_to_non_nullable
               as String,
       requestedBy: null == requestedBy
           ? _value.requestedBy
@@ -154,7 +141,6 @@ class _$_HistorySongDto implements _HistorySongDto {
   const _$_HistorySongDto(
       {required this.mediaName,
       required this.timeFrom,
-      required this.profileImageUrl,
       required this.requestedBy,
       required this.mediaLink});
 
@@ -164,9 +150,7 @@ class _$_HistorySongDto implements _HistorySongDto {
   @override
   final String mediaName;
   @override
-  final DateTime timeFrom;
-  @override
-  final String profileImageUrl;
+  final String timeFrom;
   @override
   final String requestedBy;
   @override
@@ -174,7 +158,7 @@ class _$_HistorySongDto implements _HistorySongDto {
 
   @override
   String toString() {
-    return 'HistorySongDto(mediaName: $mediaName, timeFrom: $timeFrom, profileImageUrl: $profileImageUrl, requestedBy: $requestedBy, mediaLink: $mediaLink)';
+    return 'HistorySongDto(mediaName: $mediaName, timeFrom: $timeFrom, requestedBy: $requestedBy, mediaLink: $mediaLink)';
   }
 
   @override
@@ -186,8 +170,6 @@ class _$_HistorySongDto implements _HistorySongDto {
                 other.mediaName == mediaName) &&
             (identical(other.timeFrom, timeFrom) ||
                 other.timeFrom == timeFrom) &&
-            (identical(other.profileImageUrl, profileImageUrl) ||
-                other.profileImageUrl == profileImageUrl) &&
             (identical(other.requestedBy, requestedBy) ||
                 other.requestedBy == requestedBy) &&
             (identical(other.mediaLink, mediaLink) ||
@@ -196,8 +178,8 @@ class _$_HistorySongDto implements _HistorySongDto {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, mediaName, timeFrom,
-      profileImageUrl, requestedBy, mediaLink);
+  int get hashCode =>
+      Object.hash(runtimeType, mediaName, timeFrom, requestedBy, mediaLink);
 
   @JsonKey(ignore: true)
   @override
@@ -216,8 +198,7 @@ class _$_HistorySongDto implements _HistorySongDto {
 abstract class _HistorySongDto implements HistorySongDto {
   const factory _HistorySongDto(
       {required final String mediaName,
-      required final DateTime timeFrom,
-      required final String profileImageUrl,
+      required final String timeFrom,
       required final String requestedBy,
       required final String mediaLink}) = _$_HistorySongDto;
 
@@ -227,9 +208,7 @@ abstract class _HistorySongDto implements HistorySongDto {
   @override
   String get mediaName;
   @override
-  DateTime get timeFrom;
-  @override
-  String get profileImageUrl;
+  String get timeFrom;
   @override
   String get requestedBy;
   @override
