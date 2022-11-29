@@ -2,6 +2,7 @@ import 'package:botoholt_flutter/data/song.dart';
 import 'package:botoholt_flutter/i18n/strings.g.dart';
 import 'package:botoholt_flutter/utils/constants.dart';
 import 'package:botoholt_flutter/utils/font_size.dart';
+import 'package:botoholt_flutter/utils/paddings.dart';
 import 'package:botoholt_flutter/widgets/song_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -21,22 +22,42 @@ Widget _songs(
       song.mediaName.toLowerCase().contains(search.value) ||
       song.requestedBy.toLowerCase().contains(search.value));
 
+  final controller = useTextEditingController();
+
   return Column(
     children: [
       Padding(
-        padding: const EdgeInsets.only(left: 3, right: 3, bottom: 5),
+        padding: const EdgeInsets.only(left: 3, right: 3, bottom: Paddings.tiny),
         child: TextField(
+          controller: controller,
+          textAlignVertical: TextAlignVertical.center,
+          style: const TextStyle(fontSize: FontSize.normal),
           decoration: InputDecoration(
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: Paddings.small),
             filled: true,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(Constants.cardBorderRadius),
               borderSide: BorderSide.none,
             ),
             hintText: i18n.form.search,
-            hintStyle: const TextStyle(
-              fontSize: FontSize.normal,
+            hintStyle: const TextStyle(fontSize: FontSize.normal),
+            prefixIcon: const Padding(
+              padding: EdgeInsets.only(left: Paddings.tiny),
+              child: Icon(Icons.search),
             ),
-            prefixIcon: const Icon(Icons.search),
+            suffixIcon: controller.text.isEmpty
+                ? null
+                : Padding(
+                    padding: const EdgeInsets.only(right: Paddings.tiny),
+                    child: IconButton(
+                      icon: const Icon(Icons.clear),
+                      onPressed: () {
+                        controller.clear();
+                        search.value = "";
+                      },
+                    ),
+                  ),
           ),
           onChanged: (value) => search.value = value.toLowerCase(),
         ),

@@ -9,10 +9,10 @@ part of 'streamer_scaffold.dart';
 class StreamerScaffold extends HookConsumerWidget {
   const StreamerScaffold({
     Key? key,
-    required this.body,
+    this.body,
   }) : super(key: key);
 
-  final Widget? body;
+  final List<Widget>? body;
 
   @override
   Widget build(
@@ -35,7 +35,7 @@ class _Page extends StatelessWidget {
 
   final StreamerDto streamer;
 
-  final Widget? body;
+  final List<Widget>? body;
 
   @override
   Widget build(BuildContext _context) => __page(

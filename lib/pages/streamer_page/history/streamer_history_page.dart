@@ -1,4 +1,3 @@
-import 'package:botoholt_flutter/data/dto/history_song_dto.dart';
 import 'package:botoholt_flutter/data/song.dart';
 import 'package:botoholt_flutter/i18n/strings.g.dart';
 import 'package:botoholt_flutter/pages/streamer_page/streamer_error.dart';
@@ -19,34 +18,28 @@ Widget _streamerHistoryPage(
   WidgetRef ref,
 ) {
   final history = ref.watch(streamerHistoryProvider);
+  final locale = LocaleSettings.currentLocale.languageCode;
 
   return StreamerScaffold(
     body: history.when(
-      data: (data) => _Page(history: data),
-      error: (error, _) => StreamerError(),
-      loading: () => const LinearProgressIndicator(),
+      data: (data) => [
+        Songs(
+          songs: data.map((e) {
+            final date = DateTime.parse(e.timeFrom);
+            final time =
+                '${DateFormat.Hm().format(date)} ${capitalize(DateFormat.EEEE(locale).format(date))}';
+
+            return Song(
+              mediaName: e.mediaName,
+              time: time,
+              requestedBy: e.requestedBy,
+              mediaLink: e.mediaLink,
+            );
+          }).toList(),
+        ),
+      ],
+      error: (error, _) => const [ StreamerError() ],
+      loading: () => const [ LinearProgressIndicator() ],
     ),
-  );
-}
-
-@swidget
-Widget __page(
-  BuildContext context, {
-  required List<HistorySongDto> history,
-}) {
-  final locale = LocaleSettings.currentLocale.languageCode;
-
-  return Songs(
-    songs: history.map((e) {
-      final date = DateTime.parse(e.timeFrom);
-      final time = '${DateFormat.Hm().format(date)} ${capitalize(DateFormat.EEEE(locale).format(date))}';
-      
-      return Song(
-        mediaName: e.mediaName,
-        time: time,
-        requestedBy: e.requestedBy,
-        mediaLink: e.mediaLink,
-      );
-    }).toList(),
   );
 }

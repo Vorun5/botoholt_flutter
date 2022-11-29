@@ -29,6 +29,7 @@ dependencies:
   hooks_riverpod: ^1.0.4
   intl: ^0.17.0
   json_annotation: ^4.7.0
+  socket_io_client: ^2.0.0
   shared_preferences: ^2.0.15
   slang: ^3.5.0
   slang_build_runner: ^3.5.0

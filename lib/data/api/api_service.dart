@@ -36,15 +36,19 @@ class ApiService {
   }
 
   static Future<StreamerQueueDto?> getStreamerQueue(String name) async {
-    final response = await _dio.get(
-      ApiConstants.baseUrl3 + ApiConstants.streamerQueueEndPoint(name),
-    );
-    final data = response.data;
-    if (data == null) {
+    try {
+      final response = await _dio.get(
+        ApiConstants.baseUrl3 + ApiConstants.streamerQueueEndPoint(name),
+      );
+      final data = response.data;
+      if (data == null) {
+        return null;
+      }
+
+      return StreamerQueueDto.fromJson(data);
+    } catch (e) {
       return null;
     }
-
-    return StreamerQueueDto.fromJson(data);
   }
 
   static Future<StreamerDto?> getStreamer(String name) async {

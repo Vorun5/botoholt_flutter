@@ -19,18 +19,3 @@ class StreamerHistoryPage extends HookConsumerWidget {
         _ref,
       );
 }
-
-class _Page extends StatelessWidget {
-  const _Page({
-    Key? key,
-    required this.history,
-  }) : super(key: key);
-
-  final List<HistorySongDto> history;
-
-  @override
-  Widget build(BuildContext _context) => __page(
-        _context,
-        history: history,
-      );
-}

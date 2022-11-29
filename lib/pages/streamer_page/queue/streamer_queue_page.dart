@@ -20,43 +20,30 @@ Widget _streamerQueuePage(
   WidgetRef ref,
 ) {
   final queue = ref.watch(streamerQueueProvider);
+  final i18n = Translations.of(context);
 
   return StreamerScaffold(
     body: queue.when(
-      data: (data) {
-        if (data != null) {
-          return _Page(queue: data);
-        }
-        return Container();
-      },
-      error: (error, _) => StreamerError(),
-      loading: () => const LinearProgressIndicator(),
+      data: (data) => data == null
+          ? null
+          : [
+              NowPlayingSong(queue: data),
+              Gaps.tiny,
+              Songs(
+                songs: data.queueList
+                    .map(
+                      (e) => Song(
+                          mediaName: e.mediaName,
+                          time: songDuration(e.duration, i18n.times.minutes,
+                              i18n.times.seconds),
+                          requestedBy: e.requestedBy,
+                          mediaLink: e.mediaLink),
+                    )
+                    .toList(),
+              ),
+            ],
+      error: (error, _) => const [ StreamerError()],
+      loading: () => const [LinearProgressIndicator()],
     ),
-  );
-}
-
-@swidget
-Widget __page(
-  BuildContext context, {
-  required StreamerQueueDto queue,
-}) {
-  final i18n = Translations.of(context);
-  
-  return Column(
-    children: [
-       NowPlayingSong(queue: queue),
-      Gaps.tiny,
-      Songs(
-        songs: queue.queueList
-            .map(
-              (e) => Song(
-                  mediaName: e.mediaName,
-                  time: songDuration(e.duration, i18n.times.minutes, i18n.times.seconds),
-                  requestedBy: e.requestedBy,
-                  mediaLink: e.mediaLink),
-            )
-            .toList(),
-      )
-    ],
   );
 }

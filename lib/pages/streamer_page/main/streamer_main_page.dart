@@ -11,5 +11,5 @@ Widget _streamerMainPage(
   WidgetRef ref,
 ) =>
     StreamerScaffold(
-      body: Container(),
+      body: null,
     );

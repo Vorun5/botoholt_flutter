@@ -1,3 +1,4 @@
+import 'package:botoholt_flutter/data/api/api_constants.dart';
 import 'package:botoholt_flutter/data/dto/streamer_dto.dart';
 import 'package:botoholt_flutter/i18n/strings.g.dart';
 import 'package:botoholt_flutter/providers/future/streamer_provider.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:socket_io_client/socket_io_client.dart';
 
 part 'streamer_scaffold.g.dart';
 
@@ -17,7 +19,7 @@ part 'streamer_scaffold.g.dart';
 Widget _streamerScaffold(
   BuildContext context,
   WidgetRef ref, {
-  required Widget? body,
+  List<Widget>? body,
 }) {
   final i18n = Translations.of(context);
   final streamer = ref.watch(streamerProvider);
@@ -51,11 +53,42 @@ Widget _streamerScaffold(
 Widget __page(
   BuildContext context, {
   required StreamerDto streamer,
-  required Widget? body,
+  required List<Widget>? body,
 }) {
   final i18n = Translations.of(context);
+  Socket socket;
+  void handleNotification(dynamic data) async {
+    print(data.toString());
+  }
+
+  void connectToServer() {
+    try {
+      socket = io(
+        ApiConstants.baseUrl3 +
+            ApiConstants.streamerSocketEndpoint(streamer.login),
+        <String, dynamic>{
+          'transports': ['websocket'],
+          'autoConnect': false,
+        },
+      );
+
+      socket.connect();
+      debugPrint('connect');
+      socket.on('notification', handleNotification);
+      socket.on('disconnect', (_) {
+        socket.disconnect();
+      });
+    } catch (e) {
+      debugPrint('Failed connect to socket');
+    }
+  }
+
+  connectToServer();
+
   return ListView(
+    padding: const EdgeInsets.only(right: Paddings.small),
     children: [
+      Gaps.small,
       StreamerProfileCard(streamer),
       Padding(
         padding: const EdgeInsets.symmetric(
@@ -91,7 +124,8 @@ Widget __page(
           ),
         ),
       ),
-      if (body != null) body,
+      if (body != null) ...body,
+      Gaps.small,
     ],
   );
 }
