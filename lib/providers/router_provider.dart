@@ -3,7 +3,12 @@ import 'package:botoholt_flutter/pages/home_page/home_page.dart';
 import 'package:botoholt_flutter/pages/streamer_page/history/streamer_history_page.dart';
 import 'package:botoholt_flutter/pages/streamer_page/main/streamer_main_page.dart';
 import 'package:botoholt_flutter/pages/streamer_page/queue/streamer_queue_page.dart';
+import 'package:botoholt_flutter/pages/streamer_page/top_djs/streamer_top_djs_page.dart';
+import 'package:botoholt_flutter/pages/streamer_page/top_songs/streamer_top_songs_page.dart';
+import 'package:botoholt_flutter/providers/selected_period_top_djs_provider.dart';
+import 'package:botoholt_flutter/providers/selected_period_top_songs_provider.dart';
 import 'package:botoholt_flutter/providers/selected_streamer_provider.dart';
+import 'package:botoholt_flutter/utils/periods.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -45,6 +50,66 @@ final routerProvider = Provider<GoRouter>(
             path: 'h',
             name: 'history',
             builder: (_, state) => const StreamerHistoryPage(),
+          ),
+          GoRoute(
+            path: 'top/songs/alltime',
+            name: 'top-songs-alltime',
+            builder: (_, state) {
+              Future(() {
+                ref.read(selectedPeriodTopSongsProvider.notifier).state =
+                    Period.alltime;
+              });
+
+              return StreamerSongsPage(state.params['name']);
+            },
+          ),
+          GoRoute(
+            path: 'top/songs/month',
+            name: 'top-songs-month',
+            builder: (_, state) {
+              Future(() {
+                ref.read(selectedPeriodTopSongsProvider.notifier).state =
+                    Period.month;
+              });
+
+              return StreamerSongsPage(state.params['name']);
+            },
+          ),
+          GoRoute(
+            path: 'top/djs/alltime',
+            name: 'top-djs-alltime',
+            builder: (_, state) {
+              Future(() {
+                ref.read(selectedPeriodTopDJsProvider.notifier).state =
+                    Period.alltime;
+              });
+
+              return StreamerTopDJsPage(state.params['name']);
+            },
+          ),
+          GoRoute(
+            path: 'top/djs/month',
+            name: 'top-djs-month',
+            builder: (_, state) {
+              Future(() {
+                ref.read(selectedPeriodTopDJsProvider.notifier).state =
+                    Period.month;
+              });
+
+              return StreamerTopDJsPage(state.params['name']);
+            },
+          ),
+          GoRoute(
+            path: 'top/djs/week',
+            name: 'top-djs-week',
+            builder: (_, state) {
+              Future(() {
+                ref.read(selectedPeriodTopDJsProvider.notifier).state =
+                    Period.week;
+              });
+
+              return StreamerTopDJsPage(state.params['name']);
+            },
           ),
         ],
       ),

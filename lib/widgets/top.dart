@@ -1,28 +1,23 @@
-import 'package:botoholt_flutter/data/song.dart';
-import 'package:botoholt_flutter/i18n/strings.g.dart';
+import 'package:botoholt_flutter/data/top_item.dart';
 import 'package:botoholt_flutter/utils/paddings.dart';
 import 'package:botoholt_flutter/widgets/search_field.dart';
-import 'package:botoholt_flutter/widgets/song_card.dart';
+import 'package:botoholt_flutter/widgets/top_item_card.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-part 'songs.g.dart';
+part 'top.g.dart';
 
 @hcwidget
-Widget _songs(
+Widget _top(
   BuildContext context, {
-  required List<Song> songs,
+  required List<TopItem> top,
 }) {
-  final i18n = Translations.of(context);
   final search = useState('');
-  final filteredSongs = songs.where((song) =>
-      song.mediaName.toLowerCase().contains(search.value) ||
-      song.requestedBy.toLowerCase().contains(search.value));
-
-  final controller = useTextEditingController();
+  final filteredSongs = top.where((song) =>
+      song.name.toLowerCase().contains(search.value));
 
   return Column(
     children: [
@@ -35,9 +30,9 @@ Widget _songs(
       ),
       ...filteredSongs
           .mapIndexed(
-            (index, song) => SongCard(
+            (index, topItem) => TopItemCard(
               number: index + 1,
-              song: song,
+              topItem: topItem,
             ),
           )
           .toList(),

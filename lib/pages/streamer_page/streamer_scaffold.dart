@@ -2,12 +2,12 @@ import 'package:botoholt_flutter/data/api/api_constants.dart';
 import 'package:botoholt_flutter/data/dto/streamer_dto.dart';
 import 'package:botoholt_flutter/i18n/strings.g.dart';
 import 'package:botoholt_flutter/providers/future/streamer_provider.dart';
-import 'package:botoholt_flutter/providers/router_provider.dart';
 import 'package:botoholt_flutter/utils/font_size.dart';
 import 'package:botoholt_flutter/utils/gaps.dart';
 import 'package:botoholt_flutter/utils/paddings.dart';
 import 'package:botoholt_flutter/widgets/app_scaffold.dart';
 import 'package:botoholt_flutter/widgets/streamer_profile_card.dart';
+import 'package:botoholt_flutter/widgets/tab_button.dart';
 import 'package:flutter/material.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 import 'package:go_router/go_router.dart';
@@ -20,7 +20,7 @@ part 'streamer_scaffold.g.dart';
 Widget _streamerScaffold(
   BuildContext context,
   WidgetRef ref, {
-    String location = '',
+  String location = '',
   List<Widget>? body,
 }) {
   final i18n = Translations.of(context);
@@ -57,7 +57,7 @@ Widget __page(
   BuildContext context, {
   required StreamerDto streamer,
   required List<Widget>? body,
-  required String location, 
+  required String location,
 }) {
   final i18n = Translations.of(context);
   Socket socket;
@@ -96,12 +96,14 @@ Widget __page(
       StreamerProfileCard(streamer),
       Padding(
         padding: const EdgeInsets.symmetric(
-            horizontal: Paddings.small - 5, vertical: Paddings.small),
+          horizontal: Paddings.small - 5,
+          vertical: Paddings.small,
+        ),
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              _TabButton(
+              TabButton(
                 text: i18n.streamer.tabs.queue,
                 color: const Color.fromARGB(255, 108, 200, 228),
                 onPressed: () => context.goNamed(
@@ -111,7 +113,7 @@ Widget __page(
                 isFocus: location == 'queue',
               ),
               Gaps.small,
-              _TabButton(
+              TabButton(
                 text: i18n.streamer.tabs.history,
                 color: const Color.fromARGB(255, 149, 116, 239),
                 onPressed: () => context.goNamed(
@@ -121,11 +123,28 @@ Widget __page(
                 isFocus: location == 'history',
               ),
               Gaps.small,
-              _TabButton(
+              TabButton(
                 text: i18n.streamer.tabs.topDJs,
                 color: const Color.fromARGB(255, 240, 113, 74),
-                onPressed: () {},
-                isFocus: location == 'aksdkaskd',
+                onPressed: () {
+                  context.goNamed(
+                    'top-djs-week',
+                    params: {'name': streamer.login},
+                  );
+                },
+                isFocus: location == 'top-djs',
+              ),
+              Gaps.small,
+              TabButton(
+                text: 'Топ песен',
+                color: Colors.pinkAccent,
+                onPressed: () {
+                  context.goNamed(
+                    'top-songs-month',
+                    params: {'name': streamer.login},
+                  );
+                },
+                isFocus: location == 'top-songs',
               ),
             ],
           ),
@@ -136,38 +155,3 @@ Widget __page(
     ],
   );
 }
-
-@swidget
-Widget __tabButton(
-  BuildContext context, {
-  required String text,
-  required Color color,
-  required void Function()? onPressed,
-  required bool isFocus,
-}) =>
-    OutlinedButton(
-      onPressed: isFocus ? null : onPressed,
-      style: OutlinedButton.styleFrom(
-        backgroundColor: color,
-        alignment: Alignment.center,
-        side: BorderSide(
-          color: isFocus ? Theme.of(context).colorScheme.onBackground : color,
-          width: 1.5,
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(
-          // right: Paddings.small,
-          // left: Paddings.small,
-          top: Paddings.small - 5,
-          bottom: Paddings.small - 3,
-        ),
-        child: Text(
-          text,
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: FontSize.normal - 1,
-          ),
-        ),
-      ),
-    );
