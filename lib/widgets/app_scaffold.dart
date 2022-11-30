@@ -21,7 +21,6 @@ Widget _appScaffold(
 }) {
   final i18n = Translations.of(context);
 
-  
   return ThemeSwitchingArea(
     child: Scaffold(
       appBar: AppBar(
@@ -80,8 +79,14 @@ Widget _appScaffold(
                               height: 30,
                               width: 30,
                             ),
-                            onTap: () {
-                              LocaleSettings.setLocale(locale);
+                            onTap: () async {
+                              final storage =
+                                  await SharedPreferences.getInstance();
+                              final result = await storage.setString(
+                                  'language', locale.languageCode);
+                              if (result) {
+                                LocaleSettings.setLocale(locale);
+                              }
                             },
                           ),
                         )
@@ -113,11 +118,19 @@ Widget _appScaffold(
                       ],
                     ),
                     Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('assets/dance/pepeEvil.png', height: 30, width: 30,),
+                        Image.asset(
+                          'assets/dance/pepeEvil.png',
+                          height: 30,
+                          width: 30,
+                        ),
                         Gaps.small,
-                         Image.asset('assets/dance/HACKERMANS.gif', height: 30, width: 30,),
+                        Image.asset(
+                          'assets/dance/HACKERMANS.gif',
+                          height: 30,
+                          width: 30,
+                        ),
                       ],
                     ),
                     Link(

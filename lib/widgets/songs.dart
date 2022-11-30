@@ -4,6 +4,7 @@ import 'package:botoholt_flutter/utils/constants.dart';
 import 'package:botoholt_flutter/utils/font_size.dart';
 import 'package:botoholt_flutter/utils/paddings.dart';
 import 'package:botoholt_flutter/widgets/song_card.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
@@ -63,8 +64,9 @@ Widget _songs(
         ),
       ),
       ...filteredSongs
-          .map(
-            (song) => SongCard(
+          .mapIndexed(
+            (index, song) => SongCard(
+              number: index + 1,
               song: song,
             ),
           )

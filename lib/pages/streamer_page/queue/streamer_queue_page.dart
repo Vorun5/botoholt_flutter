@@ -23,6 +23,7 @@ Widget _streamerQueuePage(
   final i18n = Translations.of(context);
 
   return StreamerScaffold(
+    location: 'queue',
     body: queue.when(
       data: (data) => data == null
           ? null

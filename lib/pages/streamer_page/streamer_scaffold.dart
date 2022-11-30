@@ -2,6 +2,7 @@ import 'package:botoholt_flutter/data/api/api_constants.dart';
 import 'package:botoholt_flutter/data/dto/streamer_dto.dart';
 import 'package:botoholt_flutter/i18n/strings.g.dart';
 import 'package:botoholt_flutter/providers/future/streamer_provider.dart';
+import 'package:botoholt_flutter/providers/router_provider.dart';
 import 'package:botoholt_flutter/utils/font_size.dart';
 import 'package:botoholt_flutter/utils/gaps.dart';
 import 'package:botoholt_flutter/utils/paddings.dart';
@@ -19,6 +20,7 @@ part 'streamer_scaffold.g.dart';
 Widget _streamerScaffold(
   BuildContext context,
   WidgetRef ref, {
+    String location = '',
   List<Widget>? body,
 }) {
   final i18n = Translations.of(context);
@@ -34,6 +36,7 @@ Widget _streamerScaffold(
           );
         }
         return _Page(
+          location: location,
           streamer: data,
           body: body,
         );
@@ -54,6 +57,7 @@ Widget __page(
   BuildContext context, {
   required StreamerDto streamer,
   required List<Widget>? body,
+  required String location, 
 }) {
   final i18n = Translations.of(context);
   Socket socket;
@@ -104,6 +108,7 @@ Widget __page(
                   'queue',
                   params: {'name': streamer.login},
                 ),
+                isFocus: location == 'queue',
               ),
               Gaps.small,
               _TabButton(
@@ -113,12 +118,14 @@ Widget __page(
                   'history',
                   params: {'name': streamer.login},
                 ),
+                isFocus: location == 'history',
               ),
               Gaps.small,
               _TabButton(
                 text: i18n.streamer.tabs.topDJs,
                 color: const Color.fromARGB(255, 240, 113, 74),
                 onPressed: () {},
+                isFocus: location == 'aksdkaskd',
               ),
             ],
           ),
@@ -131,21 +138,27 @@ Widget __page(
 }
 
 @swidget
-Widget __tabButton({
+Widget __tabButton(
+  BuildContext context, {
   required String text,
   required Color color,
   required void Function()? onPressed,
+  required bool isFocus,
 }) =>
-    TextButton(
-      onPressed: onPressed,
-      style: TextButton.styleFrom(
+    OutlinedButton(
+      onPressed: isFocus ? null : onPressed,
+      style: OutlinedButton.styleFrom(
         backgroundColor: color,
         alignment: Alignment.center,
+        side: BorderSide(
+          color: isFocus ? Theme.of(context).colorScheme.onBackground : color,
+          width: 1.5,
+        ),
       ),
       child: Padding(
         padding: const EdgeInsets.only(
-          right: Paddings.small,
-          left: Paddings.small,
+          // right: Paddings.small,
+          // left: Paddings.small,
           top: Paddings.small - 5,
           bottom: Paddings.small - 3,
         ),

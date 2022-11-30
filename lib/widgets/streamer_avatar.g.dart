@@ -6,7 +6,7 @@ part of 'streamer_avatar.dart';
 // FunctionalWidgetGenerator
 // **************************************************************************
 
-class StreamerAvatar extends StatelessWidget {
+class StreamerAvatar extends HookConsumerWidget {
   const StreamerAvatar(
     this.streamer, {
     Key? key,
@@ -15,7 +15,15 @@ class StreamerAvatar extends StatelessWidget {
   final StreamerDto streamer;
 
   @override
-  Widget build(BuildContext _context) => _streamerAvatar(streamer);
+  Widget build(
+    BuildContext _context,
+    WidgetRef _ref,
+  ) =>
+      _streamerAvatar(
+        _context,
+        _ref,
+        streamer,
+      );
 }
 
 class _IconLink extends StatelessWidget {

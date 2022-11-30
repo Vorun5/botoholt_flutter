@@ -2,6 +2,7 @@ import 'package:botoholt_flutter/data/song.dart';
 import 'package:botoholt_flutter/i18n/strings.g.dart';
 import 'package:botoholt_flutter/pages/streamer_page/streamer_error.dart';
 import 'package:botoholt_flutter/pages/streamer_page/streamer_scaffold.dart';
+import 'package:botoholt_flutter/providers/display_mode_provider.dart';
 import 'package:botoholt_flutter/providers/future/streamer_history_provider.dart';
 import 'package:botoholt_flutter/utils/capitalize.dart';
 import 'package:botoholt_flutter/widgets/songs.dart';
@@ -19,15 +20,23 @@ Widget _streamerHistoryPage(
 ) {
   final history = ref.watch(streamerHistoryProvider);
   final locale = LocaleSettings.currentLocale.languageCode;
+  final mode = ref.watch(displayModeProvider);
 
   return StreamerScaffold(
+    location: 'history',
     body: history.when(
       data: (data) => [
         Songs(
           songs: data.map((e) {
             final date = DateTime.parse(e.timeFrom);
-            final time =
-                '${DateFormat.Hm().format(date)} ${capitalize(DateFormat.EEEE(locale).format(date))}';
+            late String time;
+            if (mode == DisplayMode.mobile) {
+              time =
+                  '${DateFormat.Hm().format(date)} ${capitalize(DateFormat.E(locale).format(date))}';
+            } else {
+              time =
+                  '${DateFormat.Hm().format(date)} ${capitalize(DateFormat.EEEE(locale).format(date))}';
+            }
 
             return Song(
               mediaName: e.mediaName,
@@ -38,8 +47,8 @@ Widget _streamerHistoryPage(
           }).toList(),
         ),
       ],
-      error: (error, _) => const [ StreamerError() ],
-      loading: () => const [ LinearProgressIndicator() ],
+      error: (error, _) => const [StreamerError()],
+      loading: () => const [LinearProgressIndicator()],
     ),
   );
 }

@@ -1,4 +1,5 @@
 import 'package:botoholt_flutter/data/dto/streamer_dto.dart';
+import 'package:botoholt_flutter/providers/display_mode_provider.dart';
 import 'package:botoholt_flutter/utils/constants.dart';
 import 'package:botoholt_flutter/utils/font_size.dart';
 import 'package:botoholt_flutter/utils/gaps.dart';
@@ -7,12 +8,14 @@ import 'package:botoholt_flutter/widgets/streamer_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 part 'streamer_profile_card.g.dart';
 
-@swidget
-Widget _streamerProfileCard(BuildContext context, StreamerDto streamer) {
+@hcwidget
+Widget _streamerProfileCard(BuildContext context, WidgetRef ref, StreamerDto streamer) {
   final streamInfo = streamer.streamInfo;
+  final mode = ref.watch(displayModeProvider);
 
   return Card(
     elevation: 0,
@@ -21,7 +24,7 @@ Widget _streamerProfileCard(BuildContext context, StreamerDto streamer) {
       borderRadius: BorderRadius.circular(Constants.cardBorderRadius),
       onTap: () => context.goNamed('streamer', params: {'name': streamer.login}),
       child: Container(
-        padding: const EdgeInsets.all(Paddings.normal),
+        padding:  EdgeInsets.all(mode == DisplayMode.mobile ?  Paddings.small : Paddings.normal),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

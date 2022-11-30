@@ -2,6 +2,7 @@ import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:botoholt_flutter/i18n/strings.g.dart';
 import 'package:botoholt_flutter/providers/router_provider.dart';
 import 'package:botoholt_flutter/utils/themes.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -11,8 +12,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 part 'main.g.dart';
 
-// TODO: локально сохранять выбранный язык
-
 // TODO: заменить индикаторы загрузки на скелитон
 
 // TODO: подключить сокеты
@@ -21,23 +20,26 @@ part 'main.g.dart';
 
 // TODO: добавить топ треков
 
-// TODO: добавить напоминание о себе
-
-
 // TODO: добавить кнопку ScrollToTop
-// добавить трекам их номер, адаптировать текущий трек под мобилки
 
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
-  LocaleSettings.useDeviceLocale();
-  final isPlatformDark =
-      WidgetsBinding.instance.window.platformBrightness == Brightness.dark;
 
   final storage = await SharedPreferences.getInstance();
+  final locallyStoredLanguageCode = storage.getString('language');
+  final locallyStoredLanguage = AppLocale.values
+      .firstWhereOrNull((e) => e.languageCode == locallyStoredLanguageCode);
+  if (locallyStoredLanguage != null) {
+    LocaleSettings.setLocale(locallyStoredLanguage);
+  } else {
+    LocaleSettings.useDeviceLocale();
+  }
+
+  final isPlatformDark =
+      WidgetsBinding.instance.window.platformBrightness == Brightness.dark;
   final isDark = storage.getBool('theme');
   final initTheme = isDark ?? isPlatformDark ? Themes.dark : Themes.light;
-  
+
   runApp(
     TranslationProvider(
       child: ThemeProvider(
@@ -47,7 +49,6 @@ void main() async {
     ),
   );
 }
-
 
 @hcwidget
 Widget __app(BuildContext context, WidgetRef ref) {
@@ -60,7 +61,6 @@ Widget __app(BuildContext context, WidgetRef ref) {
       FormBuilderLocalizations.delegate,
       ...GlobalMaterialLocalizations.delegates,
     ],
-    
     supportedLocales: LocaleSettings.supportedLocales,
     locale: TranslationProvider.of(context).flutterLocale,
     routeInformationParser: router.routeInformationParser,
