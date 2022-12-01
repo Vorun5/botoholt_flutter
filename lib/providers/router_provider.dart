@@ -76,6 +76,18 @@ final routerProvider = Provider<GoRouter>(
             },
           ),
           GoRoute(
+            path: 'top/songs/week',
+            name: 'top-songs-week',
+            builder: (_, state) {
+              Future(() {
+                ref.read(selectedPeriodTopSongsProvider.notifier).state =
+                    Period.week;
+              });
+
+              return StreamerSongsPage(state.params['name']);
+            },
+          ),
+          GoRoute(
             path: 'top/djs/alltime',
             name: 'top-djs-alltime',
             builder: (_, state) {
@@ -115,24 +127,5 @@ final routerProvider = Provider<GoRouter>(
       ),
     ],
     errorBuilder: (context, state) => const ErrorPage(),
-    // errorPageBuilder: (context, state) => ErrorPage(),
-    // redirect: (context, state) {
-    //   final areWeLoggingIn = state.location == '/login';
-    //   final areWeSingUp = state.location == '/sing-up';
-
-    //   if (!isAuth && areWeSingUp) {
-    //     return null;
-    //   }
-
-    //   if (!isAuth) {
-    //     return areWeLoggingIn ? null : '/login';
-    //   }
-
-    //   if (areWeLoggingIn || areWeSingUp) {
-    //     return '/';
-    //   }
-
-    //   return null;
-    // },
   ),
 );

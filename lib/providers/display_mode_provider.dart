@@ -39,6 +39,10 @@ class DisplayModeStateNotifier extends StateNotifier<DisplayMode>
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
+
+  void changeMode(double width) {
+    state = getDisplayMode(width);
+  }
 }
 
 final displayModeProvider =

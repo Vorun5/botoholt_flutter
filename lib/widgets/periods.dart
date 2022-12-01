@@ -5,13 +5,12 @@ import 'package:botoholt_flutter/widgets/tab_button.dart';
 import 'package:flutter/material.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 
-
 part 'periods.g.dart';
 
 @swidget
 Widget _periods(
-  BuildContext context,{
-    required Period selectedPeriod,
+  BuildContext context, {
+  required Period selectedPeriod,
   required List<Period> periods,
   required void Function(Period period) onPressed,
 }) {
@@ -20,13 +19,13 @@ Widget _periods(
   String getPeriodName(Period period) {
     switch (period) {
       case Period.alltime:
-        return 'Всё время';
+        return i18n.streamer.tabs.allTime;
 
       case Period.week:
-        return 'Неделя';
+        return i18n.streamer.tabs.week;
 
       case Period.month:
-        return 'Месяц';
+        return i18n.streamer.tabs.month;
     }
   }
 

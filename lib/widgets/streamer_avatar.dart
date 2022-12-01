@@ -103,7 +103,6 @@ Widget _streamerAvatar(
 Widget __iconLink({
   required String url,
   required String svgIcon,
-  Color? color,
 }) =>
     IconButton(
       onPressed: () async {
@@ -114,7 +113,6 @@ Widget __iconLink({
       },
       icon: SvgPicture.string(
         svgIcon,
-        color: color,
         width: 20,
         height: 20,
       ),

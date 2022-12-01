@@ -1,5 +1,4 @@
 import 'package:botoholt_flutter/data/song.dart';
-import 'package:botoholt_flutter/i18n/strings.g.dart';
 import 'package:botoholt_flutter/utils/paddings.dart';
 import 'package:botoholt_flutter/widgets/search_field.dart';
 import 'package:botoholt_flutter/widgets/song_card.dart';
@@ -16,13 +15,10 @@ Widget _songs(
   BuildContext context, {
   required List<Song> songs,
 }) {
-  final i18n = Translations.of(context);
   final search = useState('');
   final filteredSongs = songs.where((song) =>
       song.mediaName.toLowerCase().contains(search.value) ||
       song.requestedBy.toLowerCase().contains(search.value));
-
-  final controller = useTextEditingController();
 
   return Column(
     children: [

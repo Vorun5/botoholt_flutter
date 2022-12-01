@@ -16,18 +16,38 @@ Widget _top(
   required List<TopItem> top,
 }) {
   final search = useState('');
-  final filteredSongs = top.where((song) =>
-      song.name.toLowerCase().contains(search.value));
+  final filteredSongs =
+      top.where((song) => song.name.toLowerCase().contains(search.value));
+
+  // return ListView.builder(
+  //   itemCount: top.length,
+  //   prototypeItem: TopItemCard(
+  //     number: 1,
+  //     topItem: top.first,
+  //   ),
+  //   itemBuilder: (BuildContext context, int index) => TopItemCard(
+  //     number: index + 1,
+  //     topItem: top[index],
+  //   ),
+  // );
 
   return Column(
     children: [
       Padding(
-        padding: const EdgeInsets.only(left: 3, right: 3, bottom: Paddings.tiny),
+        padding:
+            const EdgeInsets.only(left: 3, right: 3, bottom: Paddings.tiny),
         child: SearchField(
           search: search.value,
           onChanged: (value) => search.value = value.toLowerCase(),
         ),
       ),
+      // ListView.builder(
+      //   itemCount: top.length,
+      //   itemBuilder: (BuildContext context, int index) => TopItemCard(
+      //     number: index + 1,
+      //     topItem: top[index],
+      //   ),
+      // ),
       ...filteredSongs
           .mapIndexed(
             (index, topItem) => TopItemCard(

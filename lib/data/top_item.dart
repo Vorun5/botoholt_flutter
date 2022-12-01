@@ -8,6 +8,7 @@ class TopItem with _$TopItem {
   const factory TopItem({
     required String name,
     required int count,
+    required String? link,
   }) = _TopItem;
 
   factory TopItem.fromJson(Map<String, Object?> json) =>

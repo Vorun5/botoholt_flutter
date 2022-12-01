@@ -11,15 +11,35 @@
             "topSongs": "Top Songs",
             "month": "Month",
             "allTime": "All Time",
-            "week": "Цeek"
+            "week": "Week"
         },
         "queue": {
             "nowPlaying": "Now playing:",
             "willStillPlay": "Still going to play for about $time",
             "onPause": "On pause",
             "songsOnPause": "Songs on pause.",
-            "lastSong": "Last Song:"
+            "lastSong": "Last Song:",
+            "queueIsEmpty": "The song queue is empty. Be the first to order a song!",
+            "queueIsNull": "Botoholt doesn't seem to be affiliated with a Twitch channel. Or songs have not been ordered from this streamer for a long time!"
+        },
+        "history": {
+            "historyIsEmpty": "The streamer's history is empty. But he has everything ahead!"
+        },
+        "topDJs": {
+            "monthIsEmpty": "No one has requested a song this month 🙄 But you can fix it!",
+            "weekIsEmpty": "No one has requested a song this week 🙄 But you can fix it!",
+            "allTimeIsEmpty": "For all the time no one ordered a song 😪 But you can fix it!"
+        },
+        "topSongs": {
+            "monthIsEmpty": "This month there were no songs to order 🙄 But this is fixable! 😏",
+            "weekIsEmpty": "This week there were no songs to order 🙄 But this is fixable! 😏",
+            "allTimeIsEmpty": "For all the time there were no songs to order 😪 But this is fixable! 😏"
         }
+    },
+    "mention": {
+        "created": "Created with 💖 by",
+        "and": " and ",
+        "support": "support" 
     },
     "form": {
         "search": "Search"
@@ -32,5 +52,5 @@
     "error": "Error",
     "notConnectedToBotoholt": "This streamer is not connected to Botoholt😪",
     "pageNotFound404": "Page not found\n404",
-    "somethingWentWrong": "Что-то пошло не так(F5)🤔"
+    "somethingWentWrong": "Something went wrong (F5)🤔"
 }

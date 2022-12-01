@@ -136,11 +136,11 @@ Widget __page(
               ),
               Gaps.small,
               TabButton(
-                text: 'Топ песен',
+                text: i18n.streamer.tabs.topSongs,
                 color: Colors.pinkAccent,
                 onPressed: () {
                   context.goNamed(
-                    'top-songs-month',
+                    'top-songs-week',
                     params: {'name': streamer.login},
                   );
                 },

@@ -22,6 +22,7 @@ TopItem _$TopItemFromJson(Map<String, dynamic> json) {
 mixin _$TopItem {
   String get name => throw _privateConstructorUsedError;
   int get count => throw _privateConstructorUsedError;
+  String? get link => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +34,7 @@ abstract class $TopItemCopyWith<$Res> {
   factory $TopItemCopyWith(TopItem value, $Res Function(TopItem) then) =
       _$TopItemCopyWithImpl<$Res, TopItem>;
   @useResult
-  $Res call({String name, int count});
+  $Res call({String name, int count, String? link});
 }
 
 /// @nodoc
@@ -51,6 +52,7 @@ class _$TopItemCopyWithImpl<$Res, $Val extends TopItem>
   $Res call({
     Object? name = null,
     Object? count = null,
+    Object? link = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -61,6 +63,10 @@ class _$TopItemCopyWithImpl<$Res, $Val extends TopItem>
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
+      link: freezed == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -72,7 +78,7 @@ abstract class _$$_TopItemCopyWith<$Res> implements $TopItemCopyWith<$Res> {
       __$$_TopItemCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, int count});
+  $Res call({String name, int count, String? link});
 }
 
 /// @nodoc
@@ -87,6 +93,7 @@ class __$$_TopItemCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? count = null,
+    Object? link = freezed,
   }) {
     return _then(_$_TopItem(
       name: null == name
@@ -97,6 +104,10 @@ class __$$_TopItemCopyWithImpl<$Res>
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
+      link: freezed == link
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -104,7 +115,8 @@ class __$$_TopItemCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_TopItem implements _TopItem {
-  const _$_TopItem({required this.name, required this.count});
+  const _$_TopItem(
+      {required this.name, required this.count, required this.link});
 
   factory _$_TopItem.fromJson(Map<String, dynamic> json) =>
       _$$_TopItemFromJson(json);
@@ -113,10 +125,12 @@ class _$_TopItem implements _TopItem {
   final String name;
   @override
   final int count;
+  @override
+  final String? link;
 
   @override
   String toString() {
-    return 'TopItem(name: $name, count: $count)';
+    return 'TopItem(name: $name, count: $count, link: $link)';
   }
 
   @override
@@ -125,12 +139,13 @@ class _$_TopItem implements _TopItem {
         (other.runtimeType == runtimeType &&
             other is _$_TopItem &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.count, count) || other.count == count));
+            (identical(other.count, count) || other.count == count) &&
+            (identical(other.link, link) || other.link == link));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, count);
+  int get hashCode => Object.hash(runtimeType, name, count, link);
 
   @JsonKey(ignore: true)
   @override
@@ -148,7 +163,9 @@ class _$_TopItem implements _TopItem {
 
 abstract class _TopItem implements TopItem {
   const factory _TopItem(
-      {required final String name, required final int count}) = _$_TopItem;
+      {required final String name,
+      required final int count,
+      required final String? link}) = _$_TopItem;
 
   factory _TopItem.fromJson(Map<String, dynamic> json) = _$_TopItem.fromJson;
 
@@ -156,6 +173,8 @@ abstract class _TopItem implements TopItem {
   String get name;
   @override
   int get count;
+  @override
+  String? get link;
   @override
   @JsonKey(ignore: true)
   _$$_TopItemCopyWith<_$_TopItem> get copyWith =>

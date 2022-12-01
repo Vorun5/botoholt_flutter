@@ -18,6 +18,8 @@ dependencies:
   flutter_svg: ^1.1.6
   flutter_form_builder: ^7.7.0
   flutter_hooks: ^0.18.5+1
+  flutter_launcher_icons: ^0.11.0
+  flutter_native_splash: ^2.2.16
   flutter_localizations:
     sdk: flutter
   form_builder_validators: ^8.3.0
@@ -45,7 +47,30 @@ dev_dependencies:
   functional_widget: ^0.10.0
   json_serializable: ^6.4.0
 
+flutter_icons:
+ image_path: "assets/dance/EZ.png"
+ android: true
+ web:
+    generate: true
+    image_path: "assets/dance/EZ.png"
+    background_color: "#ffffff"
+    theme_color: "#ffffff"
+windows:
+  generate: true
+  image_path: "assets/dance/EZ.png"
+  icon_size: 112
+
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/logo.png
+  color_dark: "#313031"
+  image_dark: assets/logo_dark.png
+  android: true
+  web: true
+
 flutter:
   uses-material-design: true
   assets:
+    - assets/
     - assets/dance/

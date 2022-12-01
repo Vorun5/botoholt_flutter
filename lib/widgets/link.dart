@@ -10,6 +10,7 @@ part 'link.g.dart';
 Widget _link({
   required String text,
   required String link,
+  double? fontSize = FontSize.normal,
 }) =>
     Hoverable(
       child: (isHovered) => GestureDetector(
@@ -24,7 +25,7 @@ Widget _link({
           style: TextStyle(
             decoration:
                 isHovered ? TextDecoration.underline : TextDecoration.none,
-            fontSize: FontSize.normal,
+            fontSize: fontSize,
             color: Colors.blue,
           ),
         ),

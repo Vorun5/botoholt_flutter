@@ -7,7 +7,8 @@ part 'top_song_dto.g.dart';
 class TopSongDto with _$TopSongDto {
   const factory TopSongDto({
     required int count,
-    @JsonKey(name: 'mediaName') required String name,
+    required String mediaName,
+    required String mediaLink,
   }) = _TopSongDto;
 
   factory TopSongDto.fromJson(Map<String, Object?> json) =>

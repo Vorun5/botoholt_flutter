@@ -1,6 +1,7 @@
 import 'package:botoholt_flutter/data/top_item.dart';
 import 'package:botoholt_flutter/pages/streamer_page/streamer_error.dart';
 import 'package:botoholt_flutter/pages/streamer_page/streamer_scaffold.dart';
+import 'package:botoholt_flutter/pages/streamer_page/top_djs/top_djs_is_empty.dart';
 import 'package:botoholt_flutter/providers/future/streamer_top_djs_provider.dart';
 import 'package:botoholt_flutter/providers/selected_period_top_djs_provider.dart';
 import 'package:botoholt_flutter/utils/gaps.dart';
@@ -66,9 +67,21 @@ Widget _streamerTopDJsPage(
       ),
       Gaps.small,
       topDJs.when(
-        data: (data) => Top(
-          top: data.map((e) => TopItem(name: e.name, count: e.count)).toList(),
-        ),
+        data: (data) {
+          if (data.isEmpty)
+            return TopDJsIsEmpty(selectedPeriod);
+          else
+            return Top(
+                top: data
+                    .map(
+                      (e) => TopItem(
+                        name: e.name,
+                        count: e.count,
+                        link: null,
+                      ),
+                    )
+                    .toList());
+        },
         error: (error, _) => const StreamerError(),
         loading: () => const LinearProgressIndicator(),
       ),

@@ -11,15 +11,19 @@ class Link extends StatelessWidget {
     Key? key,
     required this.text,
     required this.link,
+    this.fontSize = FontSize.normal,
   }) : super(key: key);
 
   final String text;
 
   final String link;
 
+  final double? fontSize;
+
   @override
   Widget build(BuildContext _context) => _link(
         text: text,
         link: link,
+        fontSize: fontSize,
       );
 }

@@ -16,7 +16,7 @@ extension PeriodExtension on Period {
         return  Color.fromARGB(255, 98, 207, 67);
 
       case Period.month:
-        return Colors.yellowAccent;
+        return Color.fromARGB(255, 179, 179, 17);
     }
   }
 }

@@ -6,6 +6,7 @@ import 'package:botoholt_flutter/utils/gaps.dart';
 import 'package:botoholt_flutter/utils/paddings.dart';
 import 'package:botoholt_flutter/utils/randome_dance_emote.dart';
 import 'package:botoholt_flutter/utils/song_duration.dart';
+import 'package:botoholt_flutter/widgets/card_container.dart';
 import 'package:botoholt_flutter/widgets/link.dart';
 import 'package:botoholt_flutter/widgets/song_owner.dart';
 import 'package:collection/collection.dart';
@@ -32,85 +33,77 @@ Widget _nowPlayingSong(
   final nowPlayingDuration = queue.nowPlayingDuration;
   final nowPlayingStartsFrom = queue.nowPlayingStartsFrom;
 
-
   final isNotEmtpy = nowPlayingOwner != null &&
       nowPlayingLink != null &&
       nowPlayingName != null;
 
   final mode = ref.watch(displayModeProvider);
 
-  return Card(
-    elevation: 0,
-    color: Theme.of(context).colorScheme.onInverseSurface,
-    child: Padding(
-      padding: const EdgeInsets.all(Paddings.normal),
-      child: Column(
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image.asset(
-                queue.isPlaying
-                    ? randomDanceEmote()
-                    : 'assets/dance/PoroSad.png',
-                width: mode == DisplayMode.mobile ? 90 : 112,
-                height: mode == DisplayMode.mobile ? 90 : 112,
-              ),
-              Gaps.normal,
-              if (!isNotEmtpy && !queue.isPlaying)
-                Center(
-                  child: Text(
-                    i18n.streamer.queue.onPause,
-                    style: TextStyle(fontSize: FontSize.large),
-                  ),
-                )
-              else
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: Paddings.small),
-                        child: Text(
-                          queue.isPlaying
-                              ? i18n.streamer.queue.nowPlaying
-                              : '${i18n.streamer.queue.songsOnPause}  ${i18n.streamer.queue.lastSong}',
-                          style: TextStyle(
-                            fontSize: mode == DisplayMode.mobile
-                                ? FontSize.normal
-                                : FontSize.big,
-                          ),
+  return CardContainer(
+    child: Column(
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(
+              queue.isPlaying ? randomDanceEmote() : 'assets/dance/PoroSad.png',
+              width: mode == DisplayMode.mobile ? 90 : 112,
+              height: mode == DisplayMode.mobile ? 90 : 112,
+            ),
+            Gaps.normal,
+            if (!isNotEmtpy && !queue.isPlaying)
+              Center(
+                child: Text(
+                  i18n.streamer.queue.onPause,
+                  style: TextStyle(fontSize: FontSize.large),
+                ),
+              )
+            else
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: Paddings.small),
+                      child: Text(
+                        queue.isPlaying
+                            ? i18n.streamer.queue.nowPlaying
+                            : '${i18n.streamer.queue.songsOnPause}  ${i18n.streamer.queue.lastSong}',
+                        style: TextStyle(
+                          fontSize: mode == DisplayMode.mobile
+                              ? FontSize.normal
+                              : FontSize.big,
                         ),
                       ),
-                      if (isNotEmtpy)
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Link(text: nowPlayingName, link: nowPlayingLink),
-                            Gaps.normal,
-                            if (mode != DisplayMode.mobile)
-                              _OwnerAndDuration(
-                                duration: duration,
-                                nowPlayingDuration: nowPlayingDuration,
-                                nowPlayingStartsFrom: nowPlayingStartsFrom,
-                                owner: nowPlayingOwner,
-                              ),
-                          ],
-                        ),
-                    ],
-                  ),
+                    ),
+                    if (isNotEmtpy)
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Link(text: nowPlayingName, link: nowPlayingLink),
+                          Gaps.normal,
+                          if (mode != DisplayMode.mobile)
+                            _OwnerAndDuration(
+                              duration: duration,
+                              nowPlayingDuration: nowPlayingDuration,
+                              nowPlayingStartsFrom: nowPlayingStartsFrom,
+                              owner: nowPlayingOwner,
+                            ),
+                        ],
+                      ),
+                  ],
                 ),
-            ],
+              ),
+          ],
+        ),
+        if (isNotEmtpy && mode == DisplayMode.mobile)
+          _OwnerAndDuration(
+            duration: duration,
+            nowPlayingDuration: nowPlayingDuration,
+            nowPlayingStartsFrom: nowPlayingStartsFrom,
+            owner: nowPlayingOwner,
           ),
-          if (isNotEmtpy && mode == DisplayMode.mobile)
-            _OwnerAndDuration(
-              duration: duration,
-              nowPlayingDuration: nowPlayingDuration,
-              nowPlayingStartsFrom: nowPlayingStartsFrom,
-              owner: nowPlayingOwner,
-            ),
-        ],
-      ),
+      ],
     ),
   );
 }

@@ -21,8 +21,8 @@ TopSongDto _$TopSongDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$TopSongDto {
   int get count => throw _privateConstructorUsedError;
-  @JsonKey(name: 'mediaName')
-  String get name => throw _privateConstructorUsedError;
+  String get mediaName => throw _privateConstructorUsedError;
+  String get mediaLink => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $TopSongDtoCopyWith<$Res> {
           TopSongDto value, $Res Function(TopSongDto) then) =
       _$TopSongDtoCopyWithImpl<$Res, TopSongDto>;
   @useResult
-  $Res call({int count, @JsonKey(name: 'mediaName') String name});
+  $Res call({int count, String mediaName, String mediaLink});
 }
 
 /// @nodoc
@@ -53,16 +53,21 @@ class _$TopSongDtoCopyWithImpl<$Res, $Val extends TopSongDto>
   @override
   $Res call({
     Object? count = null,
-    Object? name = null,
+    Object? mediaName = null,
+    Object? mediaLink = null,
   }) {
     return _then(_value.copyWith(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      mediaName: null == mediaName
+          ? _value.mediaName
+          : mediaName // ignore: cast_nullable_to_non_nullable
+              as String,
+      mediaLink: null == mediaLink
+          ? _value.mediaLink
+          : mediaLink // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -76,7 +81,7 @@ abstract class _$$_TopSongDtoCopyWith<$Res>
       __$$_TopSongDtoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int count, @JsonKey(name: 'mediaName') String name});
+  $Res call({int count, String mediaName, String mediaLink});
 }
 
 /// @nodoc
@@ -91,16 +96,21 @@ class __$$_TopSongDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? count = null,
-    Object? name = null,
+    Object? mediaName = null,
+    Object? mediaLink = null,
   }) {
     return _then(_$_TopSongDto(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      mediaName: null == mediaName
+          ? _value.mediaName
+          : mediaName // ignore: cast_nullable_to_non_nullable
+              as String,
+      mediaLink: null == mediaLink
+          ? _value.mediaLink
+          : mediaLink // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -110,7 +120,7 @@ class __$$_TopSongDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TopSongDto implements _TopSongDto {
   const _$_TopSongDto(
-      {required this.count, @JsonKey(name: 'mediaName') required this.name});
+      {required this.count, required this.mediaName, required this.mediaLink});
 
   factory _$_TopSongDto.fromJson(Map<String, dynamic> json) =>
       _$$_TopSongDtoFromJson(json);
@@ -118,12 +128,13 @@ class _$_TopSongDto implements _TopSongDto {
   @override
   final int count;
   @override
-  @JsonKey(name: 'mediaName')
-  final String name;
+  final String mediaName;
+  @override
+  final String mediaLink;
 
   @override
   String toString() {
-    return 'TopSongDto(count: $count, name: $name)';
+    return 'TopSongDto(count: $count, mediaName: $mediaName, mediaLink: $mediaLink)';
   }
 
   @override
@@ -132,12 +143,15 @@ class _$_TopSongDto implements _TopSongDto {
         (other.runtimeType == runtimeType &&
             other is _$_TopSongDto &&
             (identical(other.count, count) || other.count == count) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.mediaName, mediaName) ||
+                other.mediaName == mediaName) &&
+            (identical(other.mediaLink, mediaLink) ||
+                other.mediaLink == mediaLink));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, count, name);
+  int get hashCode => Object.hash(runtimeType, count, mediaName, mediaLink);
 
   @JsonKey(ignore: true)
   @override
@@ -156,7 +170,8 @@ class _$_TopSongDto implements _TopSongDto {
 abstract class _TopSongDto implements TopSongDto {
   const factory _TopSongDto(
       {required final int count,
-      @JsonKey(name: 'mediaName') required final String name}) = _$_TopSongDto;
+      required final String mediaName,
+      required final String mediaLink}) = _$_TopSongDto;
 
   factory _TopSongDto.fromJson(Map<String, dynamic> json) =
       _$_TopSongDto.fromJson;
@@ -164,8 +179,9 @@ abstract class _TopSongDto implements TopSongDto {
   @override
   int get count;
   @override
-  @JsonKey(name: 'mediaName')
-  String get name;
+  String get mediaName;
+  @override
+  String get mediaLink;
   @override
   @JsonKey(ignore: true)
   _$$_TopSongDtoCopyWith<_$_TopSongDto> get copyWith =>

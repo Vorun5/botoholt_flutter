@@ -1,5 +1,6 @@
 import 'package:botoholt_flutter/data/song.dart';
 import 'package:botoholt_flutter/i18n/strings.g.dart';
+import 'package:botoholt_flutter/pages/streamer_page/history/history_is_empty.dart';
 import 'package:botoholt_flutter/pages/streamer_page/streamer_error.dart';
 import 'package:botoholt_flutter/pages/streamer_page/streamer_scaffold.dart';
 import 'package:botoholt_flutter/providers/display_mode_provider.dart';
@@ -26,26 +27,29 @@ Widget _streamerHistoryPage(
     location: 'history',
     body: history.when(
       data: (data) => [
-        Songs(
-          songs: data.map((e) {
-            final date = DateTime.parse(e.timeFrom);
-            late String time;
-            if (mode == DisplayMode.mobile) {
-              time =
-                  '${DateFormat.Hm().format(date)} ${capitalize(DateFormat.E(locale).format(date))}';
-            } else {
-              time =
-                  '${DateFormat.Hm().format(date)} ${capitalize(DateFormat.EEEE(locale).format(date))}';
-            }
+        if (data.isEmpty)
+          const HistoryIsEmpty()
+        else
+          Songs(
+            songs: data.map((e) {
+              final date = DateTime.parse(e.timeFrom);
+              late String time;
+              if (mode == DisplayMode.mobile) {
+                time =
+                    '${DateFormat.Hm().format(date)} ${capitalize(DateFormat.E(locale).format(date))}';
+              } else {
+                time =
+                    '${DateFormat.Hm().format(date)} ${capitalize(DateFormat.EEEE(locale).format(date))}';
+              }
 
-            return Song(
-              mediaName: e.mediaName,
-              time: time,
-              requestedBy: e.requestedBy,
-              mediaLink: e.mediaLink,
-            );
-          }).toList(),
-        ),
+              return Song(
+                mediaName: e.mediaName,
+                time: time,
+                requestedBy: e.requestedBy,
+                mediaLink: e.mediaLink,
+              );
+            }).toList(),
+          ),
       ],
       error: (error, _) => const [StreamerError()],
       loading: () => const [LinearProgressIndicator()],

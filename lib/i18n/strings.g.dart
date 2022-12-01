@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 2
-/// Strings: 44 (22 per locale)
+/// Strings: 68 (34 per locale)
 ///
-/// Built on 2022-11-29 at 09:47 UTC
+/// Built on 2022-12-01 at 11:02 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -150,12 +150,13 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	// Translations
 	late final _StringsAppBarEn appBar = _StringsAppBarEn._(_root);
 	late final _StringsStreamerEn streamer = _StringsStreamerEn._(_root);
+	late final _StringsMentionEn mention = _StringsMentionEn._(_root);
 	late final _StringsFormEn form = _StringsFormEn._(_root);
 	late final _StringsTimesEn times = _StringsTimesEn._(_root);
 	String get error => 'Error';
 	String get notConnectedToBotoholt => 'This streamer is not connected to Botoholt😪';
 	String get pageNotFound404 => 'Page not found\n404';
-	String get somethingWentWrong => 'Что-то пошло не так(F5)🤔';
+	String get somethingWentWrong => 'Something went wrong (F5)🤔';
 }
 
 // Path: appBar
@@ -178,6 +179,21 @@ class _StringsStreamerEn {
 	// Translations
 	late final _StringsStreamerTabsEn tabs = _StringsStreamerTabsEn._(_root);
 	late final _StringsStreamerQueueEn queue = _StringsStreamerQueueEn._(_root);
+	late final _StringsStreamerHistoryEn history = _StringsStreamerHistoryEn._(_root);
+	late final _StringsStreamerTopDJsEn topDJs = _StringsStreamerTopDJsEn._(_root);
+	late final _StringsStreamerTopSongsEn topSongs = _StringsStreamerTopSongsEn._(_root);
+}
+
+// Path: mention
+class _StringsMentionEn {
+	_StringsMentionEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get created => 'Created with 💖 by';
+	String get and => ' and ';
+	String get support => 'support';
 }
 
 // Path: form
@@ -215,7 +231,7 @@ class _StringsStreamerTabsEn {
 	String get topSongs => 'Top Songs';
 	String get month => 'Month';
 	String get allTime => 'All Time';
-	String get week => 'Цeek';
+	String get week => 'Week';
 }
 
 // Path: streamer.queue
@@ -230,6 +246,42 @@ class _StringsStreamerQueueEn {
 	String get onPause => 'On pause';
 	String get songsOnPause => 'Songs on pause.';
 	String get lastSong => 'Last Song:';
+	String get queueIsEmpty => 'The song queue is empty. Be the first to order a song!';
+	String get queueIsNull => 'Botoholt doesn\'t seem to be affiliated with a Twitch channel. Or songs have not been ordered from this streamer for a long time!';
+}
+
+// Path: streamer.history
+class _StringsStreamerHistoryEn {
+	_StringsStreamerHistoryEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get historyIsEmpty => 'The streamer\'s history is empty. But he has everything ahead!';
+}
+
+// Path: streamer.topDJs
+class _StringsStreamerTopDJsEn {
+	_StringsStreamerTopDJsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get monthIsEmpty => 'No one has requested a song this month 🙄 But you can fix it!';
+	String get weekIsEmpty => 'No one has requested a song this week 🙄 But you can fix it!';
+	String get allTimeIsEmpty => 'For all the time no one ordered a song 😪 But you can fix it!';
+}
+
+// Path: streamer.topSongs
+class _StringsStreamerTopSongsEn {
+	_StringsStreamerTopSongsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get monthIsEmpty => 'This month there were no songs to order 🙄 But this is fixable! 😏';
+	String get weekIsEmpty => 'This week there were no songs to order 🙄 But this is fixable! 😏';
+	String get allTimeIsEmpty => 'For all the time there were no songs to order 😪 But this is fixable! 😏';
 }
 
 // Path: <root>
@@ -259,12 +311,13 @@ class _StringsRu implements _StringsEn {
 	// Translations
 	@override late final _StringsAppBarRu appBar = _StringsAppBarRu._(_root);
 	@override late final _StringsStreamerRu streamer = _StringsStreamerRu._(_root);
+	@override late final _StringsMentionRu mention = _StringsMentionRu._(_root);
 	@override late final _StringsFormRu form = _StringsFormRu._(_root);
 	@override late final _StringsTimesRu times = _StringsTimesRu._(_root);
-	@override String get error => 'Error';
+	@override String get error => 'Ошибка';
 	@override String get notConnectedToBotoholt => 'Этот стрим не подключен к Botoholt😪';
 	@override String get pageNotFound404 => 'Страница не найдена\n404';
-	@override String get somethingWentWrong => 'Something went wrong (F5)🤔';
+	@override String get somethingWentWrong => 'Что-то пошло не так (F5)🤔';
 }
 
 // Path: appBar
@@ -287,6 +340,21 @@ class _StringsStreamerRu implements _StringsStreamerEn {
 	// Translations
 	@override late final _StringsStreamerTabsRu tabs = _StringsStreamerTabsRu._(_root);
 	@override late final _StringsStreamerQueueRu queue = _StringsStreamerQueueRu._(_root);
+	@override late final _StringsStreamerHistoryRu history = _StringsStreamerHistoryRu._(_root);
+	@override late final _StringsStreamerTopDJsRu topDJs = _StringsStreamerTopDJsRu._(_root);
+	@override late final _StringsStreamerTopSongsRu topSongs = _StringsStreamerTopSongsRu._(_root);
+}
+
+// Path: mention
+class _StringsMentionRu implements _StringsMentionEn {
+	_StringsMentionRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get created => 'Создано с 💖 от';
+	@override String get and => ' и ';
+	@override String get support => 'поддержать';
 }
 
 // Path: form
@@ -339,6 +407,42 @@ class _StringsStreamerQueueRu implements _StringsStreamerQueueEn {
 	@override String get onPause => 'На паузе';
 	@override String get songsOnPause => 'Песни на паузе.';
 	@override String get lastSong => 'Последняя песня:';
+	@override String get queueIsEmpty => 'Очередь песен пуста. Будь первым, кто закажет песню!';
+	@override String get queueIsNull => 'Botoholt, похоже, не связан с каналом Twitch. Или у этого стримера давно не заказывали песни!';
+}
+
+// Path: streamer.history
+class _StringsStreamerHistoryRu implements _StringsStreamerHistoryEn {
+	_StringsStreamerHistoryRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get historyIsEmpty => 'История стримера пуста. Но у него все впереди!';
+}
+
+// Path: streamer.topDJs
+class _StringsStreamerTopDJsRu implements _StringsStreamerTopDJsEn {
+	_StringsStreamerTopDJsRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get monthIsEmpty => 'В этом месяце никто не заказывал песню 🙄 Но ты можете это исправить!';
+	@override String get weekIsEmpty => 'На этой неделе никто не заказывал песню 🙄 Но ты можете это исправить!';
+	@override String get allTimeIsEmpty => 'За все время никто не заказывал песню  😪 Но ты можешь это исправить!';
+}
+
+// Path: streamer.topSongs
+class _StringsStreamerTopSongsRu implements _StringsStreamerTopSongsEn {
+	_StringsStreamerTopSongsRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get monthIsEmpty => 'В этом месяце не было заказных песен 🙄 Но это поправимо! 😏';
+	@override String get weekIsEmpty => 'На этой неделе не было заказных песен 🙄 Но это поправимо! 😏';
+	@override String get allTimeIsEmpty => 'За все время не было заказных песен 😪 Но это поправимо! 😏';
 }
 
 /// Flat map(s) containing all translations.
@@ -355,12 +459,24 @@ extension on _StringsEn {
 			case 'streamer.tabs.topSongs': return 'Top Songs';
 			case 'streamer.tabs.month': return 'Month';
 			case 'streamer.tabs.allTime': return 'All Time';
-			case 'streamer.tabs.week': return 'Цeek';
+			case 'streamer.tabs.week': return 'Week';
 			case 'streamer.queue.nowPlaying': return 'Now playing:';
 			case 'streamer.queue.willStillPlay': return ({required Object time}) => 'Still going to play for about ${time}';
 			case 'streamer.queue.onPause': return 'On pause';
 			case 'streamer.queue.songsOnPause': return 'Songs on pause.';
 			case 'streamer.queue.lastSong': return 'Last Song:';
+			case 'streamer.queue.queueIsEmpty': return 'The song queue is empty. Be the first to order a song!';
+			case 'streamer.queue.queueIsNull': return 'Botoholt doesn\'t seem to be affiliated with a Twitch channel. Or songs have not been ordered from this streamer for a long time!';
+			case 'streamer.history.historyIsEmpty': return 'The streamer\'s history is empty. But he has everything ahead!';
+			case 'streamer.topDJs.monthIsEmpty': return 'No one has requested a song this month 🙄 But you can fix it!';
+			case 'streamer.topDJs.weekIsEmpty': return 'No one has requested a song this week 🙄 But you can fix it!';
+			case 'streamer.topDJs.allTimeIsEmpty': return 'For all the time no one ordered a song 😪 But you can fix it!';
+			case 'streamer.topSongs.monthIsEmpty': return 'This month there were no songs to order 🙄 But this is fixable! 😏';
+			case 'streamer.topSongs.weekIsEmpty': return 'This week there were no songs to order 🙄 But this is fixable! 😏';
+			case 'streamer.topSongs.allTimeIsEmpty': return 'For all the time there were no songs to order 😪 But this is fixable! 😏';
+			case 'mention.created': return 'Created with 💖 by';
+			case 'mention.and': return ' and ';
+			case 'mention.support': return 'support';
 			case 'form.search': return 'Search';
 			case 'times.minutes': return 'm';
 			case 'times.seconds': return 's';
@@ -368,7 +484,7 @@ extension on _StringsEn {
 			case 'error': return 'Error';
 			case 'notConnectedToBotoholt': return 'This streamer is not connected to Botoholt😪';
 			case 'pageNotFound404': return 'Page not found\n404';
-			case 'somethingWentWrong': return 'Что-то пошло не так(F5)🤔';
+			case 'somethingWentWrong': return 'Something went wrong (F5)🤔';
 			default: return null;
 		}
 	}
@@ -391,14 +507,26 @@ extension on _StringsRu {
 			case 'streamer.queue.onPause': return 'На паузе';
 			case 'streamer.queue.songsOnPause': return 'Песни на паузе.';
 			case 'streamer.queue.lastSong': return 'Последняя песня:';
+			case 'streamer.queue.queueIsEmpty': return 'Очередь песен пуста. Будь первым, кто закажет песню!';
+			case 'streamer.queue.queueIsNull': return 'Botoholt, похоже, не связан с каналом Twitch. Или у этого стримера давно не заказывали песни!';
+			case 'streamer.history.historyIsEmpty': return 'История стримера пуста. Но у него все впереди!';
+			case 'streamer.topDJs.monthIsEmpty': return 'В этом месяце никто не заказывал песню 🙄 Но ты можете это исправить!';
+			case 'streamer.topDJs.weekIsEmpty': return 'На этой неделе никто не заказывал песню 🙄 Но ты можете это исправить!';
+			case 'streamer.topDJs.allTimeIsEmpty': return 'За все время никто не заказывал песню  😪 Но ты можешь это исправить!';
+			case 'streamer.topSongs.monthIsEmpty': return 'В этом месяце не было заказных песен 🙄 Но это поправимо! 😏';
+			case 'streamer.topSongs.weekIsEmpty': return 'На этой неделе не было заказных песен 🙄 Но это поправимо! 😏';
+			case 'streamer.topSongs.allTimeIsEmpty': return 'За все время не было заказных песен 😪 Но это поправимо! 😏';
+			case 'mention.created': return 'Создано с 💖 от';
+			case 'mention.and': return ' и ';
+			case 'mention.support': return 'поддержать';
 			case 'form.search': return 'Поиск';
 			case 'times.minutes': return 'м';
 			case 'times.seconds': return 'с';
 			case 'times.hours': return 'ч';
-			case 'error': return 'Error';
+			case 'error': return 'Ошибка';
 			case 'notConnectedToBotoholt': return 'Этот стрим не подключен к Botoholt😪';
 			case 'pageNotFound404': return 'Страница не найдена\n404';
-			case 'somethingWentWrong': return 'Something went wrong (F5)🤔';
+			case 'somethingWentWrong': return 'Что-то пошло не так (F5)🤔';
 			default: return null;
 		}
 	}
