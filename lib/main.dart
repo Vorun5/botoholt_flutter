@@ -24,6 +24,11 @@ part 'main.g.dart';
 
 // TODO: разобраться почему адаптив не работает на андроиде
 
+// TODO: страница с бигами
+
+// TODO: убрать анимация при переходе на route
+
+// TODO: FINALI сбилдить web проект и чилить
 
 void main() async {WidgetsFlutterBinding.ensureInitialized();
 
@@ -57,6 +62,8 @@ Widget __app(BuildContext context, WidgetRef ref) {
   final router = ref.watch(routerProvider);
 
   return MaterialApp.router(
+    scrollBehavior: ScrollConfiguration.of(context)
+                      .copyWith(scrollbars: false),
     theme: ThemeData(primarySwatch: Colors.purple, useMaterial3: true),
     debugShowCheckedModeBanner: false,
     localizationsDelegates: const [

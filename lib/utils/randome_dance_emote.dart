@@ -7,7 +7,6 @@ const _danceEmote = [
   'assets/dance/RainbowPls.gif',
   'assets/dance/PartyKirby.gif',
   'assets/dance/peepoDJ.gif',
-  'assets/dance/peepoDance.gif',
   'assets/dance/danceFrog.gif',
   'assets/dance/kumaPls.gif',
   'assets/dance/blobDance.gif',

@@ -60,9 +60,13 @@ Widget __page(
   required String location,
 }) {
   final i18n = Translations.of(context);
+
+  useInitState() {}
+
   Socket socket;
   void handleNotification(dynamic data) async {
     print(data.toString());
+    print('notification');
   }
 
   void connectToServer() {

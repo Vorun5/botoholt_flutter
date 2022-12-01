@@ -27,8 +27,10 @@ Widget _appScaffold(
       child: Scaffold(
         appBar: AppBar(
           title: TextButton(
-            child:
-             Image.asset('assets/logo.png', height: 40,),
+            child: Image.asset(
+              'assets/logo.png',
+              height: 40,
+            ),
 
             // const Text(
             //   'Botoholt',
@@ -56,7 +58,8 @@ Widget _appScaffold(
                                 : Icons.wb_sunny,
                           ),
                           onPressed: () async {
-                            final storage = await SharedPreferences.getInstance();
+                            final storage =
+                                await SharedPreferences.getInstance();
                             final res = await storage.setBool(
                                 'theme', theme != Themes.dark);
                             if (res) {
