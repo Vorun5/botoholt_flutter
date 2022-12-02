@@ -10,6 +10,7 @@ class Song with _$Song {
     required String time,
     required String requestedBy,
     required String mediaLink,
+    required int? number,
   }) = _Song;
 
   factory Song.fromJson(Map<String, Object?> json) =>

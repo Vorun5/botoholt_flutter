@@ -24,6 +24,7 @@ mixin _$Song {
   String get time => throw _privateConstructorUsedError;
   String get requestedBy => throw _privateConstructorUsedError;
   String get mediaLink => throw _privateConstructorUsedError;
+  int? get number => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,11 @@ abstract class $SongCopyWith<$Res> {
       _$SongCopyWithImpl<$Res, Song>;
   @useResult
   $Res call(
-      {String mediaName, String time, String requestedBy, String mediaLink});
+      {String mediaName,
+      String time,
+      String requestedBy,
+      String mediaLink,
+      int? number});
 }
 
 /// @nodoc
@@ -56,6 +61,7 @@ class _$SongCopyWithImpl<$Res, $Val extends Song>
     Object? time = null,
     Object? requestedBy = null,
     Object? mediaLink = null,
+    Object? number = freezed,
   }) {
     return _then(_value.copyWith(
       mediaName: null == mediaName
@@ -74,6 +80,10 @@ class _$SongCopyWithImpl<$Res, $Val extends Song>
           ? _value.mediaLink
           : mediaLink // ignore: cast_nullable_to_non_nullable
               as String,
+      number: freezed == number
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -85,7 +95,11 @@ abstract class _$$_SongCopyWith<$Res> implements $SongCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String mediaName, String time, String requestedBy, String mediaLink});
+      {String mediaName,
+      String time,
+      String requestedBy,
+      String mediaLink,
+      int? number});
 }
 
 /// @nodoc
@@ -101,6 +115,7 @@ class __$$_SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res, _$_Song>
     Object? time = null,
     Object? requestedBy = null,
     Object? mediaLink = null,
+    Object? number = freezed,
   }) {
     return _then(_$_Song(
       mediaName: null == mediaName
@@ -119,6 +134,10 @@ class __$$_SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res, _$_Song>
           ? _value.mediaLink
           : mediaLink // ignore: cast_nullable_to_non_nullable
               as String,
+      number: freezed == number
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -130,7 +149,8 @@ class _$_Song implements _Song {
       {required this.mediaName,
       required this.time,
       required this.requestedBy,
-      required this.mediaLink});
+      required this.mediaLink,
+      required this.number});
 
   factory _$_Song.fromJson(Map<String, dynamic> json) => _$$_SongFromJson(json);
 
@@ -142,10 +162,12 @@ class _$_Song implements _Song {
   final String requestedBy;
   @override
   final String mediaLink;
+  @override
+  final int? number;
 
   @override
   String toString() {
-    return 'Song(mediaName: $mediaName, time: $time, requestedBy: $requestedBy, mediaLink: $mediaLink)';
+    return 'Song(mediaName: $mediaName, time: $time, requestedBy: $requestedBy, mediaLink: $mediaLink, number: $number)';
   }
 
   @override
@@ -159,13 +181,14 @@ class _$_Song implements _Song {
             (identical(other.requestedBy, requestedBy) ||
                 other.requestedBy == requestedBy) &&
             (identical(other.mediaLink, mediaLink) ||
-                other.mediaLink == mediaLink));
+                other.mediaLink == mediaLink) &&
+            (identical(other.number, number) || other.number == number));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, mediaName, time, requestedBy, mediaLink);
+      Object.hash(runtimeType, mediaName, time, requestedBy, mediaLink, number);
 
   @JsonKey(ignore: true)
   @override
@@ -186,7 +209,8 @@ abstract class _Song implements Song {
       {required final String mediaName,
       required final String time,
       required final String requestedBy,
-      required final String mediaLink}) = _$_Song;
+      required final String mediaLink,
+      required final int? number}) = _$_Song;
 
   factory _Song.fromJson(Map<String, dynamic> json) = _$_Song.fromJson;
 
@@ -198,6 +222,8 @@ abstract class _Song implements Song {
   String get requestedBy;
   @override
   String get mediaLink;
+  @override
+  int? get number;
   @override
   @JsonKey(ignore: true)
   _$$_SongCopyWith<_$_Song> get copyWith => throw _privateConstructorUsedError;

@@ -9,16 +9,11 @@ import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 part 'top_item_card.g.dart';
 
 @swidget
-Widget _topItemCard(
-  BuildContext context, {
-  required int number,
-  required TopItem topItem,
-}) =>
-    CardContainer(
+Widget _topItemCard(BuildContext context, TopItem topItem) => CardContainer(
       child: Row(
         children: [
           Text(
-            number.toString(),
+            topItem.number.toString(),
             style: const TextStyle(
               fontSize: FontSize.normal,
               fontWeight: FontWeight.w500,

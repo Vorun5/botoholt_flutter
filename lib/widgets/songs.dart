@@ -16,27 +16,23 @@ Widget _songs(
   required List<Song> songs,
 }) {
   final search = useState('');
-  final filteredSongs = songs.where((song) =>
-      song.mediaName.toLowerCase().contains(search.value) ||
-      song.requestedBy.toLowerCase().contains(search.value));
+  final filteredSongs = songs
+      .mapIndexed((index, song) => song.copyWith(number: index + 1))
+      .where((song) =>
+          song.mediaName.toLowerCase().contains(search.value) ||
+          song.requestedBy.toLowerCase().contains(search.value));
 
   return Column(
     children: [
       Padding(
-        padding: const EdgeInsets.only(left: 3, right: 3, bottom: Paddings.tiny),
+        padding:
+            const EdgeInsets.only(left: 3, right: 3, bottom: Paddings.tiny),
         child: SearchField(
           search: search.value,
           onChanged: (value) => search.value = value.toLowerCase(),
         ),
       ),
-      ...filteredSongs
-          .mapIndexed(
-            (index, song) => SongCard(
-              number: index + 1,
-              song: song,
-            ),
-          )
-          .toList(),
+      ...filteredSongs.map((song) => SongCard(song)).toList(),
     ],
   );
 }

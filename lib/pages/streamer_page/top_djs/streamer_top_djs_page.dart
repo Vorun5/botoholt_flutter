@@ -78,6 +78,7 @@ Widget _streamerTopDJsPage(
                         name: e.name,
                         count: e.count,
                         link: null,
+                        number: null,
                       ),
                     )
                     .toList());

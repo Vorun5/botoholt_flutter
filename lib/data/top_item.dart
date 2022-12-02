@@ -9,6 +9,7 @@ class TopItem with _$TopItem {
     required String name,
     required int count,
     required String? link,
+    required int? number,
   }) = _TopItem;
 
   factory TopItem.fromJson(Map<String, Object?> json) =>

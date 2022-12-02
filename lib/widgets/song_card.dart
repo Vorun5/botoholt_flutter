@@ -10,11 +10,7 @@ import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 part 'song_card.g.dart';
 
 @swidget
-Widget _songCard(
-  BuildContext context, {
-  required int number,
-  required Song song,
-}) =>
+Widget _songCard(BuildContext context, Song song) =>
     CardContainer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,7 +18,7 @@ Widget _songCard(
           Row(
             children: [
               Text(
-                number.toString(),
+                song.number.toString(),
                 style: const TextStyle(
                   fontSize: FontSize.normal,
                   fontWeight: FontWeight.w500,

@@ -78,6 +78,7 @@ Widget _streamerSongsPage(
                       name: e.mediaName,
                       count: e.count,
                       link: e.mediaLink,
+                      number: null,
                     ),
                   )
                   .toList(),

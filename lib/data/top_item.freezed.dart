@@ -23,6 +23,7 @@ mixin _$TopItem {
   String get name => throw _privateConstructorUsedError;
   int get count => throw _privateConstructorUsedError;
   String? get link => throw _privateConstructorUsedError;
+  int? get number => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $TopItemCopyWith<$Res> {
   factory $TopItemCopyWith(TopItem value, $Res Function(TopItem) then) =
       _$TopItemCopyWithImpl<$Res, TopItem>;
   @useResult
-  $Res call({String name, int count, String? link});
+  $Res call({String name, int count, String? link, int? number});
 }
 
 /// @nodoc
@@ -53,6 +54,7 @@ class _$TopItemCopyWithImpl<$Res, $Val extends TopItem>
     Object? name = null,
     Object? count = null,
     Object? link = freezed,
+    Object? number = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -67,6 +69,10 @@ class _$TopItemCopyWithImpl<$Res, $Val extends TopItem>
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
               as String?,
+      number: freezed == number
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -78,7 +84,7 @@ abstract class _$$_TopItemCopyWith<$Res> implements $TopItemCopyWith<$Res> {
       __$$_TopItemCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, int count, String? link});
+  $Res call({String name, int count, String? link, int? number});
 }
 
 /// @nodoc
@@ -94,6 +100,7 @@ class __$$_TopItemCopyWithImpl<$Res>
     Object? name = null,
     Object? count = null,
     Object? link = freezed,
+    Object? number = freezed,
   }) {
     return _then(_$_TopItem(
       name: null == name
@@ -108,6 +115,10 @@ class __$$_TopItemCopyWithImpl<$Res>
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
               as String?,
+      number: freezed == number
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -116,7 +127,10 @@ class __$$_TopItemCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TopItem implements _TopItem {
   const _$_TopItem(
-      {required this.name, required this.count, required this.link});
+      {required this.name,
+      required this.count,
+      required this.link,
+      required this.number});
 
   factory _$_TopItem.fromJson(Map<String, dynamic> json) =>
       _$$_TopItemFromJson(json);
@@ -127,10 +141,12 @@ class _$_TopItem implements _TopItem {
   final int count;
   @override
   final String? link;
+  @override
+  final int? number;
 
   @override
   String toString() {
-    return 'TopItem(name: $name, count: $count, link: $link)';
+    return 'TopItem(name: $name, count: $count, link: $link, number: $number)';
   }
 
   @override
@@ -140,12 +156,13 @@ class _$_TopItem implements _TopItem {
             other is _$_TopItem &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.count, count) || other.count == count) &&
-            (identical(other.link, link) || other.link == link));
+            (identical(other.link, link) || other.link == link) &&
+            (identical(other.number, number) || other.number == number));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, count, link);
+  int get hashCode => Object.hash(runtimeType, name, count, link, number);
 
   @JsonKey(ignore: true)
   @override
@@ -165,7 +182,8 @@ abstract class _TopItem implements TopItem {
   const factory _TopItem(
       {required final String name,
       required final int count,
-      required final String? link}) = _$_TopItem;
+      required final String? link,
+      required final int? number}) = _$_TopItem;
 
   factory _TopItem.fromJson(Map<String, dynamic> json) = _$_TopItem.fromJson;
 
@@ -175,6 +193,8 @@ abstract class _TopItem implements TopItem {
   int get count;
   @override
   String? get link;
+  @override
+  int? get number;
   @override
   @JsonKey(ignore: true)
   _$$_TopItemCopyWith<_$_TopItem> get copyWith =>

@@ -47,6 +47,7 @@ Widget _streamerHistoryPage(
                 time: time,
                 requestedBy: e.requestedBy,
                 mediaLink: e.mediaLink,
+                number: null,
               );
             }).toList(),
           ),

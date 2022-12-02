@@ -7,20 +7,16 @@ part of 'top_item_card.dart';
 // **************************************************************************
 
 class TopItemCard extends StatelessWidget {
-  const TopItemCard({
+  const TopItemCard(
+    this.topItem, {
     Key? key,
-    required this.number,
-    required this.topItem,
   }) : super(key: key);
-
-  final int number;
 
   final TopItem topItem;
 
   @override
   Widget build(BuildContext _context) => _topItemCard(
         _context,
-        number: number,
-        topItem: topItem,
+        topItem,
       );
 }

@@ -31,12 +31,6 @@ Widget _appScaffold(
               'assets/logo.png',
               height: 40,
             ),
-
-            // const Text(
-            //   'Botoholt',
-            //   style: TextStyle(fontSize: FontSize.big),
-            // ),
-
             onPressed: () => context.goNamed('home'),
           ),
         ),

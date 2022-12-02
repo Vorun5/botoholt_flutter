@@ -22,7 +22,7 @@ Widget _streamerProfileCard(BuildContext context, WidgetRef ref, StreamerDto str
     color: Theme.of(context).colorScheme.surfaceVariant,
     child: InkWell(
       borderRadius: BorderRadius.circular(Constants.cardBorderRadius),
-      onTap: () => context.goNamed('streamer', params: {'name': streamer.login}),
+      onTap: () => context.goNamed('queue', params: {'name': streamer.login}),
       child: Container(
         padding:  EdgeInsets.all(mode == DisplayMode.mobile ?  Paddings.small : Paddings.normal),
         child: Column(

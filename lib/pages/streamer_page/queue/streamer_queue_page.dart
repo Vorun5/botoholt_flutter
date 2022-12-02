@@ -38,11 +38,13 @@ Widget _streamerQueuePage(
                   songs: data.queueList
                       .map(
                         (e) => Song(
-                            mediaName: e.mediaName,
-                            time: songDuration(e.duration, i18n.times.minutes,
-                                i18n.times.seconds),
-                            requestedBy: e.requestedBy,
-                            mediaLink: e.mediaLink),
+                          mediaName: e.mediaName,
+                          time: songDuration(e.duration, i18n.times.minutes,
+                              i18n.times.seconds),
+                          requestedBy: e.requestedBy,
+                          mediaLink: e.mediaLink,
+                          number: null,
+                        ),
                       )
                       .toList(),
                 ),
