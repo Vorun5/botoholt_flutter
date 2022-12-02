@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "ac4e1f275c56751683e46d2f8dab279d",
+  "assets/AssetManifest.json": "d88d4a3b273ab503d9c694acddc0b11b",
 "assets/assets/dance/AnimeDance.gif": "4130d383a6dbf8b1ec214997b27b4966",
 "assets/assets/dance/ayayaJAM.gif": "66c53a269e864a18dc70a16328342ac1",
 "assets/assets/dance/blobDance.gif": "b1dbd4c8f1a4cb1c5d590c087c9e142e",
@@ -17,6 +17,7 @@ const RESOURCES = {
 "assets/assets/dance/HACKERMANS.gif": "bfb25d3ca74306ea54cc8f6b31ea7f01",
 "assets/assets/dance/INSANECAT.gif": "752de652eae16eb8d1718fd739ff06a8",
 "assets/assets/dance/kumaPls.gif": "ff72978fe282cff584ddf509e23b4697",
+"assets/assets/dance/lab4.docx": "c520339855ca2a620bd8f3cd6350268a",
 "assets/assets/dance/MmmHmm.gif": "dcfb06fd33604f6db60924fe4a6ac976",
 "assets/assets/dance/OkaygeBusiness.png": "1ca3ef89c1e4d648de5cc66ccd6d8be9",
 "assets/assets/dance/PartyKirby.gif": "140ace1a29da09fc2bc5ec6117f3de6a",
@@ -573,9 +574,9 @@ const RESOURCES = {
 "icons/Icon-512.png": "80db25ffe7c6109467e5b9e0462a3f4a",
 "icons/Icon-maskable-192.png": "77c406520619a3f1accd01005db36d6e",
 "icons/Icon-maskable-512.png": "80db25ffe7c6109467e5b9e0462a3f4a",
-"index.html": "80af0042afe4c5c3d054b8a0823334ce",
-"/": "80af0042afe4c5c3d054b8a0823334ce",
-"main.dart.js": "85fc767a26f0038b9c2411cdeb5cfbd1",
+"index.html": "bb6db086d81a32080fdca816cb07dcf9",
+"/": "bb6db086d81a32080fdca816cb07dcf9",
+"main.dart.js": "9290137bcae6eda078626b48673b7e3b",
 "manifest.json": "28555a850270eed450abd63cc8e010ff",
 "splash/img/dark-1x.png": "0f4583886b12aa7556fe6b1d50613b11",
 "splash/img/dark-2x.png": "1477963e0ca1548c26f8ac622f45a83b",

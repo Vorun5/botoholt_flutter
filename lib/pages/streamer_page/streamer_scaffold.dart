@@ -1,4 +1,3 @@
-import 'package:botoholt_flutter/data/api/api_constants.dart';
 import 'package:botoholt_flutter/data/dto/streamer_dto.dart';
 import 'package:botoholt_flutter/i18n/strings.g.dart';
 import 'package:botoholt_flutter/providers/future/streamer_provider.dart';
@@ -12,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:socket_io_client/socket_io_client.dart';
+
 
 part 'streamer_scaffold.g.dart';
 
@@ -60,38 +59,6 @@ Widget __page(
   required String location,
 }) {
   final i18n = Translations.of(context);
-
-  useInitState() {}
-
-  Socket socket;
-  void handleNotification(dynamic data) async {
-    print(data.toString());
-    print('notification');
-  }
-
-  void connectToServer() {
-    try {
-      socket = io(
-        ApiConstants.baseUrl3 +
-            ApiConstants.streamerSocketEndpoint(streamer.login),
-        <String, dynamic>{
-          'transports': ['websocket'],
-          'autoConnect': false,
-        },
-      );
-
-      socket.connect();
-      debugPrint('connect');
-      socket.on('notification', handleNotification);
-      socket.on('disconnect', (_) {
-        socket.disconnect();
-      });
-    } catch (e) {
-      debugPrint('Failed connect to socket');
-    }
-  }
-
-  connectToServer();
 
   return ListView(
     padding: const EdgeInsets.only(right: Paddings.small),
