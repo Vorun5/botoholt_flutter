@@ -34,7 +34,7 @@ final routerProvider = Provider<GoRouter>(
         ),
       ),
       GoRoute(
-        path: '/s/:name',
+        path: '/:name',
         name: 'streamer',
         pageBuilder: (context, state) {
           final name = state.params['name'];

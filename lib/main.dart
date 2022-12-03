@@ -9,6 +9,10 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_strategy/url_strategy.dart'
+;
+// import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+
 // import 'package:botoholt_flutter/utils/url_strategy_native.dart'
 //     if (dart.library.html) 'package:botoholt_flutter/utils/url_strategy_web.dart';
 
@@ -30,6 +34,7 @@ part 'main.g.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setPathUrlStrategy();
   final storage = await SharedPreferences.getInstance();
   final locallyStoredLanguageCode = storage.getString('language');
   final locallyStoredLanguage = AppLocale.values
@@ -54,8 +59,6 @@ void main() async {
     ),
   );
 
-  // TODO: не работает
-  // isWebCongif();
 }
 
 @hcwidget

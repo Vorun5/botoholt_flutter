@@ -31,7 +31,7 @@ Widget _streamerHistoryPage(
   useEffect(
     () {
       final timer = Timer.periodic(Duration(seconds: 15), (timer) async {
-        print(numberUpdates.value);
+        // print(numberUpdates.value);
         if (numberUpdates.value == 720) {
           timer.cancel();
         }
