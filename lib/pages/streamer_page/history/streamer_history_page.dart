@@ -44,7 +44,6 @@ Widget _streamerHistoryPage(
           }
           final dataIsLoading = ref.read(dataIsLoadingProvider);
           if (dataIsLoading) {
-            print('данные уже обновляются');
             return;
           }
           final oldHistory = ref.read(viewStreameHistoryProvider);
@@ -53,7 +52,6 @@ Widget _streamerHistoryPage(
           );
 
           if (newHistory == oldHistory) {
-            print('ничего не изменилось');
             return;
           }
           print('обновляем');

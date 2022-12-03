@@ -44,7 +44,6 @@ Widget _streamerQueuePage(
           }
           final dataIsLoading = ref.read(dataIsLoadingProvider);
           if (dataIsLoading) {
-            print('данные уже обновляются');
             return;
           }
 

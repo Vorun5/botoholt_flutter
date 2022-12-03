@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:botoholt_flutter/pages/error_page/error_page.dart';
 import 'package:botoholt_flutter/pages/home_page/home_page.dart';
 import 'package:botoholt_flutter/pages/streamer_page/history/streamer_history_page.dart';
@@ -48,7 +46,7 @@ final routerProvider = Provider<GoRouter>(
           return PageTransition(
             context: context,
             state: state,
-            child: const StreamerMainPage(),
+            child: StreamerQueuePage(state.params['name']),
           );
         },
         routes: [
