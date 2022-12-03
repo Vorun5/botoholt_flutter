@@ -9,7 +9,8 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:url_strategy/url_strategy.dart';
+// import 'package:botoholt_flutter/utils/url_strategy_native.dart'
+//     if (dart.library.html) 'package:botoholt_flutter/utils/url_strategy_web.dart';
 
 part 'main.g.dart';
 
@@ -25,12 +26,9 @@ part 'main.g.dart';
 
 // TODO: страница с бигами
 
-// TODO: убрать анимация при переходе на route
-
 // TODO: FINALI сбилдить web проект и чилить
 
 void main() async {
-  setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
   final storage = await SharedPreferences.getInstance();
   final locallyStoredLanguageCode = storage.getString('language');
@@ -55,6 +53,9 @@ void main() async {
       ),
     ),
   );
+
+  // TODO: не работает
+  // isWebCongif();
 }
 
 @hcwidget
@@ -62,8 +63,7 @@ Widget __app(BuildContext context, WidgetRef ref) {
   final router = ref.watch(routerProvider);
 
   return MaterialApp.router(
-    scrollBehavior: ScrollConfiguration.of(context)
-                      .copyWith(scrollbars: false),
+    scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
     theme: ThemeData(primarySwatch: Colors.purple, useMaterial3: true),
     debugShowCheckedModeBanner: false,
     localizationsDelegates: const [

@@ -7,7 +7,12 @@ part of 'streamer_history_page.dart';
 // **************************************************************************
 
 class StreamerHistoryPage extends HookConsumerWidget {
-  const StreamerHistoryPage({Key? key}) : super(key: key);
+  const StreamerHistoryPage(
+    this.name, {
+    Key? key,
+  }) : super(key: key);
+
+  final String? name;
 
   @override
   Widget build(
@@ -17,5 +22,6 @@ class StreamerHistoryPage extends HookConsumerWidget {
       _streamerHistoryPage(
         _context,
         _ref,
+        name,
       );
 }

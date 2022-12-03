@@ -58,7 +58,7 @@ final routerProvider = Provider<GoRouter>(
             pageBuilder: (context, state) => PageTransition(
               context: context,
               state: state,
-              child: const StreamerQueuePage(),
+              child: StreamerQueuePage(state.params['name']),
             ),
           ),
           GoRoute(
@@ -67,7 +67,7 @@ final routerProvider = Provider<GoRouter>(
             pageBuilder: (context, state) => PageTransition(
               context: context,
               state: state,
-              child: const StreamerHistoryPage(),
+              child: StreamerHistoryPage(state.params['name']),
             ),
           ),
           GoRoute(
