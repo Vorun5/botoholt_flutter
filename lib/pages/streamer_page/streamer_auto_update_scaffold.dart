@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:botoholt_flutter/data/api/api_service.dart';
+import 'package:botoholt_flutter/data/view_stremaer_queue.dart';
 import 'package:botoholt_flutter/pages/streamer_page/streamer_scaffold.dart';
 import 'package:botoholt_flutter/providers/view_streamer_history_provider.dart';
 import 'package:botoholt_flutter/providers/view_streamer_queue_provider.dart';
@@ -24,22 +25,21 @@ Widget _streamerAutoUpdateScaffold(
   useEffect(
     () {
       Timer.periodic(Duration(seconds: 10), (timer) async {
-          if (name != null) {
-            timer.cancel();
-            print('начало обновления');
-            // ref.read(viewStreameHistoryProvider.notifier).state =
-            //     ViewStremaerHistory(
-            //   false,
-            //   await ApiService.getStreamerHistory(name),
-            // );
-            ref.read(viewStreameQueueProvider.notifier).state =
-                ViewStremaerQueue(
-              false,
-              await ApiService.getStreamerQueue(name),
-            );
+        if (name != null) {
+          timer.cancel();
+          print('начало обновления');
+          // ref.read(viewStreameHistoryProvider.notifier).state =
+          //     ViewStremaerHistory(
+          //   false,
+          //   await ApiService.getStreamerHistory(name),
+          // );
+          ref.read(viewStreameQueueProvider.notifier).state = ViewStremaerQueue(
+            isLoading: false,
+            queue: await ApiService.getStreamerQueue(name),
+          );
 
-            print('обновлено');
-          }
+          print('обновлено');
+        }
       });
 
       return null;

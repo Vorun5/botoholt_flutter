@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:botoholt_flutter/data/api/api_service.dart';
 import 'package:botoholt_flutter/data/song.dart';
+import 'package:botoholt_flutter/data/view_stremaer_history.dart';
 import 'package:botoholt_flutter/i18n/strings.g.dart';
 import 'package:botoholt_flutter/pages/streamer_page/history/history_is_empty.dart';
 import 'package:botoholt_flutter/pages/streamer_page/streamer_scaffold.dart';
+import 'package:botoholt_flutter/providers/data_is_loading_provider.dart';
 import 'package:botoholt_flutter/providers/display_mode_provider.dart';
 import 'package:botoholt_flutter/providers/view_streamer_history_provider.dart';
 import 'package:botoholt_flutter/utils/capitalize.dart';
@@ -26,12 +28,11 @@ Widget _streamerHistoryPage(
   final history = ref.watch(viewStreameHistoryProvider);
   final locale = LocaleSettings.currentLocale.languageCode;
   final mode = ref.watch(displayModeProvider);
-  
+
   final numberUpdates = useState<int>(0);
   useEffect(
     () {
-      final timer = Timer.periodic(Duration(seconds: 15), (timer) async {
-        // print(numberUpdates.value);
+      final timer = Timer.periodic(Duration(seconds: 60), (timer) async {
         if (numberUpdates.value == 720) {
           timer.cancel();
         }
@@ -41,10 +42,22 @@ Widget _streamerHistoryPage(
           } catch (e) {
             timer.cancel();
           }
-          ref.read(viewStreameHistoryProvider.notifier).state = ViewStremaerHistory(
-            false,
-            await ApiService.getStreamerHistory(name),
+          final dataIsLoading = ref.read(dataIsLoadingProvider);
+          if (dataIsLoading) {
+            print('данные уже обновляются');
+            return;
+          }
+          final oldHistory = ref.read(viewStreameHistoryProvider);
+          final newHistory = oldHistory.copyWith(
+            history: await ApiService.getStreamerHistory(name),
           );
+
+          if (newHistory == oldHistory) {
+            print('ничего не изменилось');
+            return;
+          }
+          print('обновляем');
+          ref.read(viewStreameHistoryProvider.notifier).state = newHistory;
         }
       });
 
@@ -54,7 +67,7 @@ Widget _streamerHistoryPage(
     },
     const [],
   );
-  
+
   return StreamerScaffold(
     location: 'history',
     body: history.isLoading
@@ -85,36 +98,5 @@ Widget _streamerHistoryPage(
                 }).toList(),
               ),
           ],
-
-    // history.when(
-    //   data: (data) => [
-    //     if (data.isEmpty)
-    //       const HistoryIsEmpty()
-    //     else
-    //       Songs(
-    //         songs: data.map((e) {
-    //           final date = DateTime.parse(e.timeFrom);
-    //           late String time;
-    //           if (mode == DisplayMode.mobile) {
-    //             time =
-    //                 '${DateFormat.Hm().format(date)} ${capitalize(DateFormat.E(locale).format(date))}';
-    //           } else {
-    //             time =
-    //                 '${DateFormat.Hm().format(date)} ${capitalize(DateFormat.EEEE(locale).format(date))}';
-    //           }
-
-    //           return Song(
-    //             mediaName: e.mediaName,
-    //             time: time,
-    //             requestedBy: e.requestedBy,
-    //             mediaLink: e.mediaLink,
-    //             number: null,
-    //           );
-    //         }).toList(),
-    //       ),
-    //   ],
-    //   error: (error, _) => const [StreamerError()],
-    //   loading: () => const [LinearProgressIndicator()],
-    // ),
   );
 }

@@ -2,10 +2,12 @@ import 'dart:async';
 
 import 'package:botoholt_flutter/data/api/api_service.dart';
 import 'package:botoholt_flutter/data/song.dart';
+import 'package:botoholt_flutter/data/view_stremaer_queue.dart';
 import 'package:botoholt_flutter/i18n/strings.g.dart';
 import 'package:botoholt_flutter/pages/streamer_page/queue/queue_is_empty.dart';
 import 'package:botoholt_flutter/pages/streamer_page/queue/queue_is_null.dart';
 import 'package:botoholt_flutter/pages/streamer_page/streamer_scaffold.dart';
+import 'package:botoholt_flutter/providers/data_is_loading_provider.dart';
 import 'package:botoholt_flutter/providers/view_streamer_queue_provider.dart';
 import 'package:botoholt_flutter/utils/gaps.dart';
 import 'package:botoholt_flutter/utils/song_duration.dart';
@@ -30,8 +32,7 @@ Widget _streamerQueuePage(
   final numberUpdates = useState<int>(0);
   useEffect(
     () {
-      final timer = Timer.periodic(Duration(seconds: 15), (timer) async {
-        // print(numberUpdates.value);
+      final timer = Timer.periodic(Duration(seconds: 40), (timer) async {
         if (numberUpdates.value == 720) {
           timer.cancel();
         }
@@ -41,9 +42,15 @@ Widget _streamerQueuePage(
           } catch (e) {
             timer.cancel();
           }
+          final dataIsLoading = ref.read(dataIsLoadingProvider);
+          if (dataIsLoading) {
+            print('данные уже обновляются');
+            return;
+          }
+
           ref.read(viewStreameQueueProvider.notifier).state = ViewStremaerQueue(
-            false,
-            await ApiService.getStreamerQueue(name),
+            isLoading: false,
+            queue: await ApiService.getStreamerQueue(name),
           );
         }
       });
@@ -82,33 +89,5 @@ Widget _streamerQueuePage(
                         .toList(),
                   ),
               ],
-
-    // queue.when(
-    //   data: (data) => data == null
-    //       ? const [QueueIsNull()]
-    //       : [
-    //           NowPlayingSong(queue: data),
-    //           Gaps.tiny,
-    //           if (data.queueList.isEmpty)
-    //             const QueueIsEmpty()
-    //           else
-    //             Songs(
-    //               songs: data.queueList
-    //                   .map(
-    //                     (e) => Song(
-    //                       mediaName: e.mediaName,
-    //                       time: songDuration(e.duration, i18n.times.minutes,
-    //                           i18n.times.seconds),
-    //                       requestedBy: e.requestedBy,
-    //                       mediaLink: e.mediaLink,
-    //                       number: null,
-    //                     ),
-    //                   )
-    //                   .toList(),
-    //             ),
-    //         ],
-    //   error: (error, _) => const [StreamerError()],
-    //   loading: () => const [LinearProgressIndicator()],
-    // ),
   );
 }
